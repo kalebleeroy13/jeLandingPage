@@ -170,3 +170,10 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background-color: #e0c500;
 }
+
+#landing-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

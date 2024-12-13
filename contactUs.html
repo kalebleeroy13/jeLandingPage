@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Jenergy Electrical and Solar</title>
+    <title>Contact Us - Jenergy Electrical and Solar</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,37 +18,70 @@
                 <li><a href="aboutUs.html">About Us</a></li>
                 <li class="dropdown">
                     <a href="services.html" class="dropbtn">Services</a>
-                    <div class="dropdown-content">
-                        <a href="solarSystems.html">Solar Systems</a>
-                        <a href="batterySystems.html">Battery Systems</a>
-                        <a href="evCharging.html">EV Charging</a>
-                        <a href="generalElectrical.html">General Electrical</a>
+                    <div class="dropdown-content" aria-label="Service Categories">
+                        <div>
+                            <a href="solarSystems.html" class="icon-link"><i class="fas fa-solar-panel"></i></a>
+                            Solar Systems
+                            <a href="solarSystems.html" class="learn-more">Learn More</a>
+                        </div>
+                        <div>
+                            <a href="batterySystems.html" class="icon-link"><i class="fas fa-battery-full"></i></a>
+                            Battery Systems
+                            <a href="batterySystems.html" class="learn-more">Learn More</a>
+                        </div>
+                        <div>
+                            <a href="evCharging.html" class="icon-link"><i class="fas fa-charging-station"></i></a>
+                            EV Charging
+                            <a href="evCharging.html" class="learn-more">Learn More</a>
+                        </div>
+                        <div>
+                            <a href="generalElectrical.html" class="icon-link"><i class="fas fa-bolt"></i></a>
+                            General Electrical
+                            <a href="generalElectrical.html" class="learn-more">Learn More</a>
+                        </div>
                     </div>
                 </li>
-                <li><a href="contactUs.html">Contact</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="contact">
+        <section id="contact-details">
             <h1>Contact Us</h1>
-            <p>Get in touch with us for more information or to schedule a consultation.</p>
-            <form>
+            <p>We'd love to hear from you! Get in touch with us for any inquiries, quotes, or general information.</p>
+            <h2>Address</h2>
+            <p>Serving all suburbs in and around Melbourne, Victoria.</p>
+
+            <h2>Hours of Operation</h2>
+            <p>Monday - Friday: 9am - 6pm</p>
+            <p>Saturday - Sunday: 10am - 4pm</p>
+
+            <h2>Contact Information</h2>
+            <p>Email: <a href="mailto:Jenergyelectrical@gmail.com">Jenergyelectrical@gmail.com</a></p>
+            <p>Phone: <a href="tel:+61468417514">(0468) 417-514</a></p>
+        </section>
+
+        <section id="contact-form">
+            <h2>Get in Touch</h2>
+            <form action="#" method="post">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
+                <input type="text" id="name" name="name" required>
+                
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
+                <input type="email" id="email" name="email" required>
+                
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea><br>
-                <input type="submit" value="Submit">
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <input type="submit" value="Send Message">
             </form>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Jenergy Electrical and Solar. All rights reserved.</p>
-        <p>Contact us: (555) 555-5555 | email@example.com</p>
+        <p>Contact us: (0468) 417-514 | <a href="mailto:Jenergyelectrical@gmail.com">Jenergyelectrical@gmail.com</a></p>
     </footer>
 </body>
 </html>

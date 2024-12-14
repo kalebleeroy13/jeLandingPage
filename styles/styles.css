@@ -101,7 +101,7 @@ nav ul li a:hover {
 .custom-dropdown-menu {
     display: none; /* Initially hidden */
     flex-direction: row; /* Align items horizontally */
-    justify-content: space-around; /* Space items evenly */
+    justify-content: space-between; /* Space items evenly */
     position: absolute;
     top: 100%;
     left: 0;
@@ -109,7 +109,6 @@ nav ul li a:hover {
     background-color: #000000; /* Set dropdown background to black */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow effect */
     z-index: 999; /* Ensure dropdown appears on top */
-    padding: 20px; /* Add padding for better spacing */
 }
 
 .dropdown:hover .custom-dropdown-menu {
@@ -125,11 +124,14 @@ nav ul li a:hover {
     color: #FFD700; /* Match font color in the header */
     font-size: 20px; /* Enlarged font size */
     background-color: #000000; /* Ensure the dropdown item background is black */
+    width: 100%; /* Make each dropdown item take full width */
+    text-align: center; /* Center-align the text */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .custom-dropdown-menu i {
     font-size: 32px; /* Adjust icon size */
-    margin-bottom: 15px; /* Add spacing below icon */
+    margin-bottom: 10px; /* Add spacing below icon */
     transition: transform 0.3s; /* Smooth transition for scaling */
 }
 
@@ -139,7 +141,7 @@ nav ul li a:hover {
 
 .custom-dropdown-menu .learn-more {
     font-size: 18px; /* Enlarged font size for Learn More */
-    padding-top: 10px; /* Add padding above Learn More */
+    padding-top: 5px; /* Add padding above Learn More */
 }
 
 .custom-dropdown-menu a.learn-more:hover {
@@ -298,3 +300,4 @@ form input[type="submit"]:hover {
     text-align: center;
     margin-top: 20px;
 }
+

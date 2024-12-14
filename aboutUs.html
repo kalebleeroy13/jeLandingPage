@@ -6,6 +6,7 @@
     <title>About Us - Jenergy Electrical and Solar</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -13,36 +14,39 @@
             <div id="logo-container">
                 <img src="styles/images/jenergyLogo.jpg" alt="Jenergy Electrical Logo" id="logo">
             </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutUs.html">About Us</a></li>
-                <li class="dropdown">
-                    <a href="services.html" class="dropbtn">Services</a>
-                    <div class="dropdown-content" aria-label="Service Categories">
-                        <div>
-                            <a href="solarSystems.html" class="icon-link"><i class="fas fa-solar-panel"></i></a>
-                            Solar Systems
-                            <a href="solarSystems.html" class="learn-more">Learn More</a>
+            <div class="nav-container">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutUs.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="dropdown-button">Services</a>
+                        <div class="custom-dropdown-menu">
+                            <div>
+                                <a href="solarSystems.html" class="icon-link"><i class="fas fa-solar-panel"></i></a>
+                                Solar Systems
+                                <a href="solarSystems.html" class="learn-more">Learn More</a>
+                            </div>
+                            <div>
+                                <a href="batterySystems.html" class="icon-link"><i class="fas fa-battery-full"></i></a>
+                                Battery Systems
+                                <a href="batterySystems.html" class="learn-more">Learn More</a>
+                            </div>
+                            <div>
+                                <a href="evCharging.html" class="icon-link"><i class="fas fa-charging-station"></i></a>
+                                EV Charging
+                                <a href="evCharging.html" class="learn-more">Learn More</a>
+                            </div>
+                            <div>
+                                <a href="generalElectrical.html" class="icon-link"><i class="fas fa-bolt"></i></a>
+                                General Electrical
+                                <a href="generalElectrical.html" class="learn-more">Learn More</a>
+                            </div>
                         </div>
-                        <div>
-                            <a href="batterySystems.html" class="icon-link"><i class="fas fa-battery-full"></i></a>
-                            Battery Systems
-                            <a href="batterySystems.html" class="learn-more">Learn More</a>
-                        </div>
-                        <div>
-                            <a href="evCharging.html" class="icon-link"><i class="fas fa-charging-station"></i></a>
-                            EV Charging
-                            <a href="evCharging.html" class="learn-more">Learn More</a>
-                        </div>
-                        <div>
-                            <a href="generalElectrical.html" class="icon-link"><i class="fas fa-bolt"></i></a>
-                            General Electrical
-                            <a href="generalElectrical.html" class="learn-more">Learn More</a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="contactUs.html">Contact Us</a></li>
-            </ul>
+                    </li>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                </ul>
+                <a href="tel:+61468417514" class="call-us-button">Call Us: (0468) 417-514</a>
+            </div>
         </nav>
     </header>
 
@@ -64,9 +68,20 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Jenergy Electrical and Solar. All rights reserved.</p>
-        <p>Contact us: (555) 555-5555 | <a href="mailto:email@example.com">email@example.com</a></p>
+        <div id="footer-content">
+            <img src="styles/images/jenergyLogo.jpg" alt="Jenergy Electrical Logo" id="footer-logo">
+            <div id="footer-links">
+                <a href="solarSystems.html">Solar Systems</a> |
+                <a href="batterySystems.html">Battery Systems</a> |
+                <a href="evCharging.html">EV Charging</a> |
+                <a href="generalElectrical.html">General Electrical</a>
+            </div>
+            <p>&copy; 2024 Jenergy Electrical and Solar. All rights reserved.</p>
+            <p>Contact us: (0468) 417-514 | <a href="mailto:Jenergyelectrical@gmail.com">Jenergyelectrical@gmail.com</a></p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
 

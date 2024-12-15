@@ -247,21 +247,29 @@ footer p {
 form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    max-width: 400px;
+    align-items: flex-start; /* Align items to the start by default */
+    max-width: 100%;
     margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add subtle shadow for pop effect */
+    border-radius: 10px;
 }
 
 form label {
     margin-bottom: 5px;
 }
 
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+form .form-group {
+    width: 100%; /* Ensure all form groups are the same width */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea {
+    width: 100%; /* Ensure specific input widths are consistent */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 form input[type="submit"] {
@@ -271,15 +279,58 @@ form input[type="submit"] {
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 5px;
+    display: block; /* Ensure the button is a block element */
+    margin: 0 auto; /* Center the button */
 }
 
 form input[type="submit"]:hover {
     background-color: #e0c500;
 }
 
+
+
+
+/* Align contact form and details side by side */
+#contact-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+#contact-details {
+    width: 45%;
+    text-align: left;
+}
+
+#contact-form {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#contact-form h2 {
+    text-align: center;
+    width: 100%;
+}
+
+#contact-form label {
+    border: none; /* Remove border from labels */
+}
+
+#contact-form input, #contact-form select, #contact-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc; /* Standard border for input fields */
+    border-radius: 5px;
+    background-color: #ffffff; /* White background inside the fields */
+}
+
 #main-image {
     text-align: center;
 }
+
 
 #main-image img {
     width: 100%;
@@ -300,4 +351,3 @@ form input[type="submit"]:hover {
     text-align: center;
     margin-top: 20px;
 }
-

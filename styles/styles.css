@@ -212,7 +212,7 @@ nav ul li a:hover {
 }
 
 /* Footer Styling */
-footer {
+footer, #footer-placeholder {
     background-color: #ffffff; /* Change footer background to white */
     color: #000000; /* Change footer text color to black */
     text-align: center;
@@ -287,9 +287,6 @@ form input[type="submit"]:hover {
     background-color: #e0c500;
 }
 
-
-
-
 /* Align contact form and details side by side */
 #contact-section {
     display: flex;
@@ -330,7 +327,6 @@ form input[type="submit"]:hover {
 #main-image {
     text-align: center;
 }
-
 
 #main-image img {
     width: 100%;

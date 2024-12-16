@@ -8,7 +8,7 @@ body {
 }
 
 /* Header Styling */
-header {
+header, #header-placeholder {
     background-color: #000000; /* Use the black color of the logo's background */
     color: #FFD700;
     padding: 10px 20px;

@@ -1,38 +1,56 @@
+:root {
+    --primary-color: #FFD700;
+    --secondary-color: #333333;
+    --background-color: #ffffff;
+    --font-family: 'Roboto', sans-serif;
+    --font-size-large: 20px;
+}
+
 /* General page styling */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Change the background color to white */
-    color: #333333;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
 }
 
 /* Header Styling */
 header, #header-placeholder {
-    background-color: #000000; /* Use the black color of the logo's background */
-    color: #FFD700;
+    background-color: #000000; 
+    color: var(--primary-color);
     padding: 10px 20px;
     display: flex;
-    align-items: center; /* Centers items vertically */
-    justify-content: space-between; /* Ensure space between items */
-    position: sticky; /* Make the header sticky */
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-#logo-container {
-    margin-right: 20px; /* Adjust this value as needed */
+#logo-container img, #header-logo {
+    width: 150px;  
+    height: auto;  
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    z-index: 5; 
+    position: relative; 
 }
 
-#logo {
-    width: 200px; /* Adjust width as needed for readability */
-    height: auto;
+.logo-faded #logo {
+    display: none;
+}
+
+.logo-faded #header-logo {
+    display: inline-block;
+    opacity: 1;
 }
 
 nav {
     display: flex;
-    align-items: center; /* Centers nav items vertically */
-    flex-grow: 1; /* Allows the navigation to grow */
+    align-items: center; 
+    flex-grow: 1; 
 }
 
 nav ul {
@@ -41,7 +59,7 @@ nav ul {
     margin: 0;
     display: flex;
     align-items: center;
-    font-size: 20px; /* Enlarged font size */
+    font-size: var(--font-size-large);
 }
 
 nav ul li {
@@ -49,14 +67,14 @@ nav ul li {
     position: relative;
 }
 
-nav ul li a {
-    color: #FFD700; /* Hex code of the logo letters */
+nav ul li a, .cta-button {
+    color: var(--primary-color);
     text-decoration: none;
-    padding: 15px 20px; /* Adjust padding */
-    font-size: 20px; /* Enlarged font size */
+    padding: 15px 20px;
+    font-size: var(--font-size-large);
 }
 
-nav ul li a:hover {
+nav ul li a:hover, .cta-button:hover {
     text-decoration: underline;
 }
 
@@ -69,14 +87,14 @@ nav ul li a:hover {
 }
 
 .call-us-button {
-    background-color: #FFD700;
-    color: #333333;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 20px; /* Enlarged font size */
-    margin-left: auto; /* Pushes the button to the right */
-    margin-right: 20px; /* Adds space from the right border */
+    font-size: var(--font-size-large);
+    margin-left: auto; 
+    margin-right: 20px;
 }
 
 .call-us-button:hover {
@@ -85,34 +103,24 @@ nav ul li a:hover {
 
 /* Dropdown Styling */
 .dropdown {
-    position: relative; /* Ensure the dropdown parent is positioned relative */
-}
-
-.dropdown-button {
-    background: none;
-    border: none;
-    color: #FFD700; /* Match the color with the logo letters */
-    cursor: pointer;
-    font-size: 20px; /* Enlarged font size */
-    text-decoration: none;
-    padding: 15px 20px; /* Adjust padding */
+    position: relative; 
 }
 
 .custom-dropdown-menu {
-    display: none; /* Initially hidden */
-    flex-direction: row; /* Align items horizontally */
-    justify-content: space-between; /* Space items evenly */
+    display: none;
+    flex-direction: row; 
+    justify-content: space-between; 
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%; /* Full width */
-    background-color: #000000; /* Set dropdown background to black */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow effect */
-    z-index: 999; /* Ensure dropdown appears on top */
+    width: 100%; 
+    background-color: #000000; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    z-index: 999; 
 }
 
 .dropdown:hover .custom-dropdown-menu {
-    display: flex; /* Display as flexbox */
+    display: flex; 
 }
 
 .custom-dropdown-menu div {
@@ -120,28 +128,28 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    font-family: 'Roboto', sans-serif; /* Match font in the header */
-    color: #FFD700; /* Match font color in the header */
-    font-size: 20px; /* Enlarged font size */
-    background-color: #000000; /* Ensure the dropdown item background is black */
-    width: 100%; /* Make each dropdown item take full width */
-    text-align: center; /* Center-align the text */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-family: var(--font-family); 
+    color: var(--primary-color); 
+    font-size: var(--font-size-large); 
+    background-color: #000000; 
+    width: 100%; 
+    text-align: center; 
+    box-sizing: border-box; 
 }
 
 .custom-dropdown-menu i {
-    font-size: 32px; /* Adjust icon size */
-    margin-bottom: 10px; /* Add spacing below icon */
-    transition: transform 0.3s; /* Smooth transition for scaling */
+    font-size: 32px;
+    margin-bottom: 10px;
+    transition: transform 0.3s; 
 }
 
 .custom-dropdown-menu .icon-link:hover i {
-    transform: scale(1.2); /* Enlarge icon on hover */
+    transform: scale(1.2);
 }
 
 .custom-dropdown-menu .learn-more {
-    font-size: 18px; /* Enlarged font size for Learn More */
-    padding-top: 5px; /* Add padding above Learn More */
+    font-size: 18px; 
+    padding-top: 5px; 
 }
 
 .custom-dropdown-menu a.learn-more:hover {
@@ -149,7 +157,7 @@ nav ul li a:hover {
 }
 
 .custom-dropdown-menu a:hover {
-    background-color: transparent; /* Remove background on hover */
+    background-color: transparent; 
 }
 
 /* Hero Section Styling */
@@ -173,20 +181,6 @@ nav ul li a:hover {
     background: rgba(0,0,0,0.5);
     padding: 20px;
     border-radius: 10px;
-}
-
-/* Button Styling */
-.cta-button {
-    background-color: #FFD700;
-    color: #333333;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-}
-
-.cta-button:hover {
-    background-color: #e0c500;
 }
 
 /* Section Styling */
@@ -213,13 +207,13 @@ nav ul li a:hover {
 
 /* Footer Styling */
 footer, #footer-placeholder {
-    background-color: #ffffff; /* Change footer background to white */
-    color: #000000; /* Change footer text color to black */
+    background-color: var(--background-color);
+    color: var(--secondary-color);
     text-align: center;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers footer content horizontally */
+    align-items: center;
     width: 100%;
 }
 
@@ -230,7 +224,7 @@ footer, #footer-placeholder {
 }
 
 #footer-links a {
-    color: #000000; /* Change link color to black */
+    color: var(--secondary-color);
     text-decoration: none;
     margin: 0 10px;
 }
@@ -247,11 +241,11 @@ footer p {
 form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the start by default */
+    align-items: flex-start; 
     max-width: 100%;
     margin: 0 auto;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add subtle shadow for pop effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     border-radius: 10px;
 }
 
@@ -260,7 +254,7 @@ form label {
 }
 
 form .form-group {
-    width: 100%; /* Ensure all form groups are the same width */
+    width: 100%; 
 }
 
 form input[type="text"],
@@ -268,19 +262,24 @@ form input[type="email"],
 form input[type="tel"],
 form select,
 form textarea {
-    width: 100%; /* Ensure specific input widths are consistent */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    width: 100%; 
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    background-color: var(--background-color); 
+    box-sizing: border-box;
 }
 
 form input[type="submit"] {
-    background-color: #FFD700;
-    color: #333333;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 5px;
-    display: block; /* Ensure the button is a block element */
-    margin: 0 auto; /* Center the button */
+    display: block; 
+    margin: 0 auto; 
 }
 
 form input[type="submit"]:hover {
@@ -312,38 +311,29 @@ form input[type="submit"]:hover {
 }
 
 #contact-form label {
-    border: none; /* Remove border from labels */
+    border: none; 
 }
 
 #contact-form input, #contact-form select, #contact-form textarea {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ccc; /* Standard border for input fields */
+    border: 1px solid #ccc; 
     border-radius: 5px;
-    background-color: #ffffff; /* White background inside the fields */
+    background-color: var(--background-color); 
 }
 
-#main-image {
-    text-align: center;
-}
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+    
+    #contact-section {
+        flex-direction: column;
+    }
 
-#main-image img {
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-#landing-image {
-    width: 100%;
-    height: 200px;
-    display: block;
-    margin: 0 auto;
-}
-
-#welcome {
-    text-align: center;
-    margin-top: 20px;
+    #contact-details, #contact-form {
+        width: 100%;
+    }
 }

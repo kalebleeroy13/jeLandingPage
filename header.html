@@ -1,9 +1,14 @@
 <header>
     <nav>
         <div id="logo-container">
-            <img src="styles/images/jenergyLogo.jpg" alt="Jenergy Electrical Logo" id="header-logo">
+            <img src="styles/images/jenergyLogo.jpg" alt="Jenergy Electrical Logo" id="logo" style="display: block;">
         </div>
-        <div class="nav-container">
+        <button class="menu-icon navbar-toggle" id="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-container" id="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="aboutUs.html">About Us</a></li>
@@ -33,8 +38,10 @@
                     </div>
                 </li>
                 <li><a href="contactUs.html">Contact Us</a></li>
+                <li><a href="tel:+61468417514" class="call-us-button">Call Us: 0468 417 514</a></li>
             </ul>
-            <a href="tel:+61468417514" class="call-us-button">Call Us: 0468 417 514</a>
         </div>
     </nav>
 </header>
+
+

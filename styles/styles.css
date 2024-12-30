@@ -88,6 +88,11 @@ nav ul li a:hover, .cta-button:hover {
     text-decoration: underline;
 }
 
+/* Add margin to the "Contact Us" link */
+nav ul li a[href="contactUs.html"] {
+    margin-right: 15px; /* Add margin to create space */
+}
+
 /* Mobile Menu */
 @media (max-width: 768px) {
     .navbar-toggle {
@@ -292,7 +297,7 @@ nav ul li a:hover, .cta-button:hover {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
-    text-align: left; /* Align text to the left */
+    text-align: center; /* Center text */
 }
 
 .work-item .work-text {
@@ -433,4 +438,35 @@ form input[type="submit"]:hover {
     #contact-details, #contact-form {
         width: 100%;
     }
+}
+
+/* Centered Header Styling for ourWork Page */
+.centered-header {
+    text-align: center;
+}
+
+/* Request Quote Button Styling */
+.request-quote-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: -20px; /* Adjust margin to move up */
+    padding-left: 20px; /* Move button to the left */
+}
+
+.request-quote-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--call-us-text-color);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 24px; /* Larger font size */
+    text-decoration: none;
+    text-align: center;
+    border: none; /* Remove any default border */
+}
+
+.request-quote-button:hover {
+    background-color: #e0c500;
+    color: var(--call-us-text-color); /* Maintain text color on hover */
 }

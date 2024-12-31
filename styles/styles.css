@@ -77,20 +77,19 @@ nav ul li {
     position: relative;
 }
 
-nav ul li a, .cta-button {
+nav a, .cta-button {
     color: var(--primary-color);
     text-decoration: none;
     padding: 15px 20px;
     font-size: var(--font-size-large);
 }
 
-nav ul li a:hover, .cta-button:hover {
+nav a:hover, .cta-button:hover {
     text-decoration: underline;
 }
 
-/* Add margin to the "Contact Us" link */
-nav ul li a[href="contactUs.html"] {
-    margin-right: 15px; /* Add margin to create space */
+nav a[href="contactUs.html"] {
+    margin-right: 15px;
 }
 
 /* Mobile Menu */
@@ -134,7 +133,7 @@ nav ul li a[href="contactUs.html"] {
         text-align: center;
     }
 
-    nav ul li a {
+    nav a {
         padding: 10px;
         width: 100%;
         display: block;
@@ -143,41 +142,32 @@ nav ul li a[href="contactUs.html"] {
     .call-us-button {
         padding: 10px;
         width: 100%;
-        display: block;
-        text-align: center; /* Center align text */
+        text-align: center;
     }
 }
 
 /* Call Us Button Styling */
 .call-us-button {
     background-color: var(--primary-color);
-    color: var(--call-us-text-color); /* Ensure text is visible */
+    color: var(--call-us-text-color);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-size: var(--font-size-large);
-    margin-left: auto; /* Push to the right */
+    margin-left: auto;
 }
 
 .call-us-button:hover {
     background-color: #e0c500;
-    color: var(--call-us-text-color); /* Maintain text color on hover */
 }
 
 @media (min-width: 769px) {
     .call-us-button {
-        background-color: var(--primary-color);
-        color: var(--call-us-text-color);
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: var(--font-size-large);
-        margin-left: auto;
         position: relative;
     }
 
     .navbar-toggle {
-        display: none; /* Hide hamburger icon on larger screens */
+        display: none;
     }
 }
 
@@ -297,7 +287,7 @@ nav ul li a[href="contactUs.html"] {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
-    text-align: center; /* Center text */
+    text-align: center;
 }
 
 .work-item .work-text {
@@ -326,38 +316,45 @@ footer, #footer-placeholder {
 
 #footer-content {
     display: flex;
-    justify-content: center; /* Ensure content is centered horizontally */
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Ensure content wraps on smaller screens */
+    flex-wrap: wrap;
 }
 
-#footer-links {
+#general-links {
     display: flex;
-    flex-direction: column; /* Align links vertically */
-    justify-content: flex-start; /* Align links to the left */
-    margin-right: 20px; /* Add some space between links and the image */
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 20px;
 }
 
-#footer-links a {
+#service-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+#general-links a, #service-links a {
     color: var(--secondary-color);
     text-decoration: none;
     margin: 5px 0;
 }
 
-#footer-links a:hover {
+#general-links a:hover, #service-links a:hover {
     text-decoration: underline;
 }
 
 #footer-logo {
     width: 150px;
     height: auto;
-    margin-right: 10px; /* Adjust margin as needed */
+    margin: 0 10px;
 }
 
 footer p {
     margin: 5px 0;
-    width: 100%; /* Ensure paragraphs take up full width */
-    text-align: center; /* Center align text */
+    width: 100%;
+    text-align: center;
 }
 
 /* Responsive Design */
@@ -367,8 +364,8 @@ footer p {
         text-align: center;
     }
 
-    #footer-links {
-        margin-bottom: 10px; /* Add space between links and the logo */
+    #general-links, #service-links {
+        margin-bottom: 10px;
     }
 }
 
@@ -478,7 +475,7 @@ form input[type="submit"]:hover {
     display: flex;
     justify-content: center; /* Center the button */
     align-items: center;
-    margin-top: 20px; /* Adjust margin to move up */
+    margin-top: 20px;
 }
 
 .request-quote-button {
@@ -487,13 +484,13 @@ form input[type="submit"]:hover {
     color: var(--call-us-text-color);
     padding: 15px 30px;
     border-radius: 5px;
-    font-size: 24px; /* Larger font size */
+    font-size: 24px;
     text-decoration: none;
     text-align: center;
-    border: none; /* Remove any default border */
+    border: none;
 }
 
 .request-quote-button:hover {
     background-color: #e0c500;
-    color: var(--call-us-text-color); /* Maintain text color on hover */
+    color: var(--call-us-text-color);
 }

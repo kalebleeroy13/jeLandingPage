@@ -319,29 +319,57 @@ footer, #footer-placeholder {
     text-align: center;
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-#footer-logo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 10px;
+#footer-content {
+    display: flex;
+    justify-content: center; /* Ensure content is centered horizontally */
+    align-items: center;
+    flex-wrap: wrap; /* Ensure content wraps on smaller screens */
+}
+
+#footer-links {
+    display: flex;
+    flex-direction: column; /* Align links vertically */
+    justify-content: flex-start; /* Align links to the left */
+    margin-right: 20px; /* Add some space between links and the image */
 }
 
 #footer-links a {
     color: var(--secondary-color);
     text-decoration: none;
-    margin: 0 10px;
+    margin: 5px 0;
 }
 
 #footer-links a:hover {
     text-decoration: underline;
 }
 
+#footer-logo {
+    width: 150px;
+    height: auto;
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
 footer p {
     margin: 5px 0;
+    width: 100%; /* Ensure paragraphs take up full width */
+    text-align: center; /* Center align text */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #footer-links {
+        margin-bottom: 10px; /* Add space between links and the logo */
+    }
 }
 
 /* Form Styling */
@@ -448,10 +476,9 @@ form input[type="submit"]:hover {
 /* Request Quote Button Styling */
 .request-quote-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center; /* Center the button */
     align-items: center;
-    margin-top: -20px; /* Adjust margin to move up */
-    padding-left: 20px; /* Move button to the left */
+    margin-top: 20px; /* Adjust margin to move up */
 }
 
 .request-quote-button {

@@ -70,4 +70,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     loadHeaderFooter();
+
+    // Dynamic versioning for CSS files using Last Modified Date
+    const cssLink = document.querySelector('link[rel="stylesheet"][href="styles/styles.css"]');
+    if (cssLink) {
+        fetch(cssLink.href).then(response => {
+            const lastModified = response.headers.get('last-modified');
+            if (lastModified) {
+                const version = new Date(lastModified).getTime();
+                cssLink.href = `${cssLink.href}?v=${version}`;
+            }
+        }).catch(error => {
+            console.error('Error fetching CSS file:', error);
+        });
+    }
+
+    // Register service worker (if applicable)
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').then((registration) => {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch((error) => {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+        });
+    }
 });
+

@@ -154,21 +154,17 @@ nav a[href="contactUs.html"] {
     text-decoration: none;
     border-radius: 5px;
     font-size: var(--font-size-large);
-    margin-left: auto;
+    position: fixed; /* Fix position on the screen */
+    right: 10%; /* Adjust the distance from the right edge */
+    
+    transform: translateY(-50%); /* Adjust to center vertically */
+    z-index: 1000; /* Ensure it stays on top */
+    transition: background-color 0.3s; /* Smooth hover transition */
 }
 
 .call-us-button:hover {
     background-color: #e0c500;
-}
-
-@media (min-width: 769px) {
-    .call-us-button {
-        position: relative;
-    }
-
-    .navbar-toggle {
-        display: none;
-    }
+    color: var(--call-us-text-color); /* Maintain text color on hover */
 }
 
 /* Dropdown Styling */
@@ -348,7 +344,8 @@ footer, #footer-placeholder {
 #footer-logo {
     width: 150px;
     height: auto;
-    margin: 0 10px;
+    margin: 0 10px; /* Adjust margin */
+    display: block; /* Ensure block display to avoid white line issue */
 }
 
 footer p {

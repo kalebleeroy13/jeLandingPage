@@ -7,7 +7,7 @@
     --call-us-text-color: #000000; /* Added for better visibility */
 }
 
- General page styling */
+/* General page styling */
 body {
     font-family: var(--font-family);
     margin: 0;
@@ -99,15 +99,15 @@ nav a[href="contactUs.html"] {
         margin-left: auto;
         flex-direction: column;
         justify-content: space-between;
-        height: 30px; /* Increase height */
-        width: 36px; /* Increase width */
+        height: 24px;
+        width: 30px;
         cursor: pointer;
         z-index: 10;
     }
 
     .navbar-toggle span {
         display: block;
-        height: 5px; /* Increase height */
+        height: 4px;
         width: 100%;
         background-color: #333;
         border-radius: 2px;
@@ -155,7 +155,6 @@ nav a[href="contactUs.html"] {
     border-radius: 5px;
     font-size: var(--font-size-large);
     margin-left: auto;
-    margin-right: 20px; /* Add space on the right side */
 }
 
 .call-us-button:hover {
@@ -313,26 +312,27 @@ footer, #footer-placeholder {
     justify-content: center;
     align-items: center;
     width: 100%;
-    flex-wrap: wrap; /* Ensure wrapping on smaller screens */
 }
 
 #footer-content {
     display: flex;
-    flex-direction: column; /* Column layout to stack elements */
+    justify-content: center;
     align-items: center;
-    width: 100%; /* Ensure it uses the full width */
+    flex-wrap: wrap;
 }
 
-#footer-logo {
-    width: 150px;
-    height: auto;
-    margin: 10px 0; /* Add margin for spacing */
-}
-
-#general-links, #service-links {
+#general-links {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center align the links */
+    justify-content: flex-start;
+    margin-right: 20px;
+}
+
+#service-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 20px;
 }
 
 #general-links a, #service-links a {
@@ -343,6 +343,12 @@ footer, #footer-placeholder {
 
 #general-links a:hover, #service-links a:hover {
     text-decoration: underline;
+}
+
+#footer-logo {
+    width: 150px;
+    height: auto;
+    margin: 0 10px;
 }
 
 footer p {

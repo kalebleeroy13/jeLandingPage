@@ -1,9 +1,18 @@
 function toggleMenu() {
     const nav = document.querySelector('nav ul');
     nav.classList.toggle('open');
+    // Update the aria-expanded attribute
+    const isExpanded = nav.classList.contains('open');
+    document.getElementById('menu-icon').setAttribute('aria-expanded', isExpanded);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Dynamically add lazy loading to all images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.setAttribute('loading', 'lazy');
+    });
+
     const dropdown = document.querySelector('.dropdown');
     const dropdownContent = document.querySelector('.custom-dropdown-menu');
     const logo = document.getElementById('logo');
@@ -96,4 +105,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-

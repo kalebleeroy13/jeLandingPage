@@ -30,7 +30,7 @@ header, #header-placeholder {
 }
 
 #logo-container img, #header-logo {
-    width: 150px;
+    width: 200px; /* Increased the width for bigger logo */
     height: auto;
     object-fit: cover;
     margin: 0;
@@ -90,6 +90,18 @@ nav a:hover, .cta-button:hover {
 
 nav a[href="contactUs.html"] {
     margin-right: 15px;
+}
+
+/* Styling for header social media icons */
+.nav-container i.fab.fa-instagram {
+    color: #E1306C; /* Instagram's primary color */
+    margin-right: 10px;
+    font-size: 2em; /* Adjusted the size to make it bigger */
+    transition: color 0.3s;
+}
+
+.nav-container i.fab.fa-instagram:hover {
+    color: #C13584;
 }
 
 /* Mobile Menu */

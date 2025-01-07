@@ -279,24 +279,88 @@ nav a[href="contactUs.html"] {
     margin: 0 auto;
 }
 
-.work-item {
+/* Services Section Styling */
+#services-overview {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 20px;
+    padding: 20px;
+}
+
+.icon-item {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    background-color: var(--background-color);
+    text-decoration: none; /* Remove default hyperlink styles */
+    color: var(--secondary-color); /* Ensure text color is consistent */
+}
+
+.icon-item i {
+    font-size: 48px;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.icon-item p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+.icon-item:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Our Work Section Styling */
+#our-work-overview {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.centered-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.work-item {
     margin-bottom: 40px;
     text-align: center;
 }
 
-.work-item .work-text {
-    flex: 1;
-    padding: 0 20px;
+.work-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.work-item .work-image {
-    max-width: 300px;
-    max-height: 200px;
-    width: 100%;
+.work-image {
+    max-width: 45%;
     height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.work-image:hover {
+    transform: scale(1.05);
+}
+
+.work-text {
+    margin-top: 20px;
 }
 
 /* Footer Styling */
@@ -449,5 +513,14 @@ form input[type="submit"]:hover {
 
     #contact-details, #contact-form {
         width: 100%;
+    }
+
+    .work-images {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .work-image {
+        max-width: 100%;
     }
 }

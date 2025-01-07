@@ -30,7 +30,7 @@ header, #header-placeholder {
 }
 
 #logo-container img, #header-logo {
-    width: 200px; /* Increased the width for bigger logo */
+    width: 200px;
     height: auto;
     object-fit: cover;
     margin: 0;
@@ -69,7 +69,7 @@ nav ul {
     align-items: center;
     font-size: var(--font-size-large);
     flex-grow: 1;
-    justify-content: flex-start; /* Align items to the left */
+    justify-content: flex-start;
 }
 
 nav ul li {
@@ -94,9 +94,9 @@ nav a[href="contactUs.html"] {
 
 /* Styling for header social media icons */
 .nav-container i.fab.fa-instagram {
-    color: #E1306C; /* Instagram's primary color */
+    color: #E1306C;
     margin-right: 10px;
-    font-size: 2em; /* Adjusted the size to make it bigger */
+    font-size: 2em;
     transition: color 0.3s;
 }
 
@@ -156,21 +156,6 @@ nav a[href="contactUs.html"] {
         width: 100%;
         text-align: center;
     }
-}
-
-/* Call Us Button Styling */
-.call-us-button {
-    background-color: var(--primary-color);
-    color: var(--call-us-text-color);
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: var(--font-size-large);
-    margin-left: auto;
-}
-
-.call-us-button:hover {
-    background-color: #e0c500;
 }
 
 @media (min-width: 769px) {
@@ -369,18 +354,6 @@ footer p {
     text-align: center;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    #general-links, #service-links {
-        margin-bottom: 10px;
-    }
-}
-
 /* Form Styling */
 form {
     display: flex;
@@ -433,20 +406,21 @@ form input[type="submit"]:hover {
 /* Align contact form and details side by side */
 #contact-section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 40px;
 }
 
-#contact-details {
-    width: 45%;
+#contact-details, #contact-form {
+    flex: 1;
+    min-width: 300px;
     text-align: left;
+    margin-bottom: 20px;
 }
 
 #contact-form {
-    width: 45%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
 }
 
 #contact-form h2 {
@@ -470,39 +444,10 @@ form input[type="submit"]:hover {
 
     #contact-section {
         flex-direction: column;
+        align-items: center;
     }
 
     #contact-details, #contact-form {
         width: 100%;
     }
-}
-
-/* Centered Header Styling for ourWork Page */
-.centered-header {
-    text-align: center;
-}
-
-/* Request Quote Button Styling */
-.request-quote-container {
-    display: flex;
-    justify-content: center; /* Center the button */
-    align-items: center;
-    margin-top: 20px;
-}
-
-.request-quote-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--call-us-text-color);
-    padding: 15px 30px;
-    border-radius: 5px;
-    font-size: 24px;
-    text-decoration: none;
-    text-align: center;
-    border: none;
-}
-
-.request-quote-button:hover {
-    background-color: #e0c500;
-    color: var(--call-us-text-color);
 }

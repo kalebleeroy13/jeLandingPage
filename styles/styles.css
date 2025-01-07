@@ -104,6 +104,65 @@ nav a[href="contactUs.html"] {
     color: #C13584;
 }
 
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+}
+
+.custom-dropdown-menu {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+
+.dropdown:hover .custom-dropdown-menu {
+    display: flex;
+}
+
+.custom-dropdown-menu div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-family: var(--font-family);
+    color: var(--primary-color);
+    font-size: var(--font-size-large);
+    background-color: #000000;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.custom-dropdown-menu i {
+    font-size: 32px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.custom-dropdown-menu .icon-link:hover i {
+    transform: scale(1.2);
+}
+
+.custom-dropdown-menu .learn-more {
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.custom-dropdown-menu a.learn-more:hover {
+    text-decoration: underline;
+}
+
+.custom-dropdown-menu a:hover {
+    background-color: transparent;
+}
+
 /* Mobile Menu */
 @media (max-width: 768px) {
     .navbar-toggle {
@@ -168,65 +227,6 @@ nav a[href="contactUs.html"] {
     }
 }
 
-/* Dropdown Styling */
-.dropdown {
-    position: relative;
-}
-
-.custom-dropdown-menu {
-    display: none;
-    flex-direction: row;
-    justify-content: space-between;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #000000;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 999;
-}
-
-.dropdown:hover .custom-dropdown-menu {
-    display: flex;
-}
-
-.custom-dropdown-menu div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    font-family: var(--font-family);
-    color: var(--primary-color);
-    font-size: var(--font-size-large);
-    background-color: #000000;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.custom-dropdown-menu i {
-    font-size: 32px;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
-}
-
-.custom-dropdown-menu .icon-link:hover i {
-    transform: scale(1.2);
-}
-
-.custom-dropdown-menu .learn-more {
-    font-size: 18px;
-    padding-top: 5px;
-}
-
-.custom-dropdown-menu a.learn-more:hover {
-    text-decoration: underline;
-}
-
-.custom-dropdown-menu a:hover {
-    background-color: transparent;
-}
-
 /* Hero Section Styling */
 #hero {
     position: relative;
@@ -272,7 +272,6 @@ nav a[href="contactUs.html"] {
     text-align: left;
 }
 
-/* Centered Content Styling */
 .centered-content {
     text-align: center;
     max-width: 1200px;
@@ -304,25 +303,30 @@ nav a[href="contactUs.html"] {
     text-align: center;
     background-color: var(--background-color);
     text-decoration: none; /* Remove default hyperlink styles */
-    color: var(--secondary-color); /* Ensure text color is consistent */
+    color: var(--primary-color); /* Updated color to match header icons */
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .icon-item i {
     font-size: 48px;
-    color: var(--secondary-color);
     margin-bottom: 10px;
+    color: var(--primary-color); /* Updated color to match header icons */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.icon-item:hover i {
+    transform: scale(1.2); /* Adding scaling effect on hover */
+}
+
+.icon-item:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .icon-item p {
     margin: 0;
     font-size: 16px;
     color: var(--secondary-color);
-}
-
-.icon-item:hover {
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 /* Our Work Section Styling */

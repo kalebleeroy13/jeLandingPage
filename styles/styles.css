@@ -504,6 +504,14 @@ form input[type="submit"]:hover {
     width: 100%;
 }
 
+/* Map image styling */
+.map-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
     nav ul {

@@ -506,7 +506,7 @@ form input[type="submit"]:hover {
 
 /* Map image styling */
 .map-image {
-    max-width: 100%;
+    max-width: 50%; /* Updated to make the map smaller */
     height: auto;
     display: block;
     margin: 20px 0;
@@ -536,3 +536,4 @@ form input[type="submit"]:hover {
         max-width: 100%;
     }
 }
+

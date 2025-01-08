@@ -16,6 +16,11 @@ body {
     color: var(--secondary-color);
 }
 
+/* Centered text styling */
+.centered-text {
+    text-align: center;
+}
+
 /* Header Styling */
 header, #header-placeholder {
     display: flex;
@@ -536,4 +541,3 @@ form input[type="submit"]:hover {
         max-width: 100%;
     }
 }
-

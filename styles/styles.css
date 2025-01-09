@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #FFD700;
-    --secondary-color: #333333;
-    --background-color: #ffffff;
+    --primary-color: #FFD700; /* This is the primary color */
+    --secondary-color: #333333; /* This is the secondary color */
+    --background-color: #000000; /* Updated to match the header */
     --font-family: 'Roboto', sans-serif;
     --font-size-large: 20px;
-    --call-us-text-color: #000000; /* Added for better visibility */
+    --call-us-text-color: #000000; /* For better visibility */
 }
 
 /* General page styling */
@@ -12,13 +12,8 @@ body {
     font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
-    color: var(--secondary-color);
-}
-
-/* Centered text styling */
-.centered-text {
-    text-align: center;
+    background-color: var(--background-color); /* Updated to match the header */
+    color: var(--primary-color); /* Updated to match the primary color */
 }
 
 /* Header Styling */
@@ -27,7 +22,7 @@ header, #header-placeholder {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #000000;
+    background-color: var(--background-color);
     color: var(--primary-color);
     position: sticky;
     top: 0;
@@ -122,7 +117,7 @@ nav a[href="contactUs.html"] {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #000000;
+    background-color: var(--background-color);
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 999;
 }
@@ -139,7 +134,7 @@ nav a[href="contactUs.html"] {
     font-family: var(--font-family);
     color: var(--primary-color);
     font-size: var(--font-size-large);
-    background-color: #000000;
+    background-color: var(--background-color);
     width: 100%;
     text-align: center;
     box-sizing: border-box;
@@ -166,70 +161,6 @@ nav a[href="contactUs.html"] {
 
 .custom-dropdown-menu a:hover {
     background-color: transparent;
-}
-
-/* Mobile Menu */
-@media (max-width: 768px) {
-    .navbar-toggle {
-        display: flex;
-        margin-left: auto;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 24px;
-        width: 30px;
-        cursor: pointer;
-        z-index: 10;
-    }
-
-    .navbar-toggle span {
-        display: block;
-        height: 4px;
-        width: 100%;
-        background-color: #333;
-        border-radius: 2px;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #000000;
-        z-index: 999;
-    }
-
-    nav ul.open {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 0;
-        text-align: center;
-    }
-
-    nav a {
-        padding: 10px;
-        width: 100%;
-        display: block;
-    }
-
-    .call-us-button {
-        padding: 10px;
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (min-width: 769px) {
-    .call-us-button {
-        position: relative;
-    }
-
-    .navbar-toggle {
-        display: none;
-    }
 }
 
 /* Hero Section Styling */
@@ -547,6 +478,7 @@ form input[type="submit"]:hover {
     }
 }
 
+/* Button styling */
 .request-quote-container {
     text-align: center;
     margin-top: 15%; /* Adjust this margin to move it lower */
@@ -566,4 +498,68 @@ form input[type="submit"]:hover {
 
 .request-quote-container .cta-button:hover {
     background-color: #e0c500;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: flex;
+        margin-left: auto;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 24px;
+        width: 30px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .navbar-toggle span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-color: #333;
+        border-radius: 2px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--background-color);
+        z-index: 999;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+
+    nav a {
+        padding: 10px;
+        width: 100%;
+        display: block;
+    }
+
+    .call-us-button {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) {
+    .call-us-button {
+        position: relative;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
 }

@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #FFD700; /* This is the primary color */
-    --secondary-color: #333333; /* This is the secondary color */
-    --background-color: #000000; /* Updated to match the header */
+    --primary-color: #FFD700;
+    --secondary-color: #333333;
+    --background-color: #000000; /* Updated to match header */
     --font-family: 'Roboto', sans-serif;
     --font-size-large: 20px;
-    --call-us-text-color: #000000; /* For better visibility */
+    --call-us-text-color: #000000; /* Added for better visibility */
 }
 
 /* General page styling */
@@ -12,12 +12,17 @@ body {
     font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background-color: var(--background-color); /* Updated to match the header */
-    color: var(--primary-color); /* Updated to match the primary color */
+    background-color: var(--background-color); /* Updated to match header */
+    color: var(--primary-color); /* Updated to match header */
+}
+
+/* Centered text styling */
+.centered-text {
+    text-align: center;
 }
 
 /* Header Styling */
-header, #header-placeholder {
+header, #header-placeholder, footer, #footer-placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +34,7 @@ header, #header-placeholder {
     z-index: 1000;
 }
 
-#logo-container img, #header-logo {
+#logo-container img, #header-logo, #footer-logo {
     width: 200px;
     height: auto;
     object-fit: cover;
@@ -48,16 +53,10 @@ header, #header-placeholder {
     opacity: 1;
 }
 
-nav {
+nav, .nav-container {
     display: flex;
     align-items: center;
     flex-grow: 1;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
 }
 
@@ -77,14 +76,14 @@ nav ul li {
     position: relative;
 }
 
-nav a, .cta-button {
+nav a, .cta-button, #footer-content a {
     color: var(--primary-color);
     text-decoration: none;
     padding: 15px 20px;
     font-size: var(--font-size-large);
 }
 
-nav a:hover, .cta-button:hover {
+nav a:hover, .cta-button:hover, #footer-content a:hover {
     text-decoration: underline;
 }
 
@@ -134,7 +133,6 @@ nav a[href="contactUs.html"] {
     font-family: var(--font-family);
     color: var(--primary-color);
     font-size: var(--font-size-large);
-    background-color: var(--background-color);
     width: 100%;
     text-align: center;
     box-sizing: border-box;
@@ -192,6 +190,18 @@ nav a[href="contactUs.html"] {
     text-align: center;
 }
 
+/* Updated Step and Icon Styles */
+.steps-grid .step, .icon-item {
+    background-color: var(--primary-color); /* Black by default */
+    color: var(--background-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.steps-grid .step:hover, .icon-item:hover {
+    background-color: var(--background-color); /* Turn white on hover */
+    color: var(--primary-color);
+}
+
 .steps-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -201,29 +211,16 @@ nav a[href="contactUs.html"] {
 }
 
 .step {
-    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: left;
 }
 
-.centered-content {
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Services Section Styling */
-#services-overview {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
 .icon-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    grid-template-rows: auto auto; /* Two rows */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 20px;
     padding: 20px;
 }
@@ -237,16 +234,13 @@ nav a[href="contactUs.html"] {
     border: 1px solid #ccc;
     border-radius: 8px;
     text-align: center;
-    background-color: var(--background-color);
     text-decoration: none; /* Remove default hyperlink styles */
-    color: var(--primary-color); /* Updated color to match header icons */
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .icon-item i {
     font-size: 48px;
     margin-bottom: 10px;
-    color: var(--primary-color); /* Updated color to match header icons */
     transition: transform 0.3s, color 0.3s;
 }
 
@@ -254,15 +248,9 @@ nav a[href="contactUs.html"] {
     transform: scale(1.2); /* Adding scaling effect on hover */
 }
 
-.icon-item:hover {
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
 .icon-item p {
     margin: 0;
     font-size: 16px;
-    color: var(--secondary-color);
 }
 
 /* Our Work Section Styling */
@@ -306,7 +294,7 @@ nav a[href="contactUs.html"] {
 /* Footer Styling */
 footer, #footer-placeholder {
     background-color: var(--background-color);
-    color: var(--secondary-color);
+    color: var(--primary-color); /* Updated to match header */
     text-align: center;
     padding: 20px;
     display: flex;
@@ -337,7 +325,7 @@ footer, #footer-placeholder {
 }
 
 #general-links a, #service-links a {
-    color: var(--secondary-color);
+    color: var(--primary-color); /* Updated to match header */
     text-decoration: none;
     margin: 5px 0;
 }
@@ -363,19 +351,27 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 100%;
+    max-width: 80%; /* Make the form smaller */
     margin: 0 auto;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 10px;
+    background-color: var(--background-color); /* Add background color */
+    border: 4px solid #ffffff; /* Make the form thicker */
 }
 
-form label {
+form label,
+#contact-form label {
     margin-bottom: 5px;
+    border: none;
 }
 
-form .form-group {
+form .form-group,
+#contact-form input, #contact-form select, #contact-form textarea,
+.map-image {
     width: 100%;
+    display: block;
+    margin: 20px 0;
 }
 
 form input[type="text"],
@@ -383,7 +379,6 @@ form input[type="email"],
 form input[type="tel"],
 form select,
 form textarea {
-    width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -392,7 +387,9 @@ form textarea {
     box-sizing: border-box;
 }
 
-form input[type="submit"] {
+form input[type="submit"],
+.request-quote-container .cta-button,
+.request-quote-container .cta-button:hover {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: none;
@@ -420,7 +417,7 @@ form input[type="submit"]:hover {
     margin-bottom: 20px;
 }
 
-#contact-details, #contact-form {
+#contact-details {
     flex: 1;
     min-width: 300px;
     text-align: left;
@@ -428,26 +425,17 @@ form input[type="submit"]:hover {
 }
 
 #contact-form {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
 }
 
-#contact-form h2 {
-    text-align: center;
-    width: 100%;
-}
-
-#contact-form label {
-    border: none;
-}
-
-#contact-form input, #contact-form select, #contact-form textarea {
-    width: 100%;
-}
-
 /* Map image styling */
 .map-image {
-    max-width: 50%; /* Updated to make the map smaller */
+    max-width: 40%; /* Make the map image bigger */
     height: auto;
     display: block;
     margin: 20px 0;
@@ -481,23 +469,14 @@ form input[type="submit"]:hover {
 /* Button styling */
 .request-quote-container {
     text-align: center;
-    margin-top: 15%; /* Adjust this margin to move it lower */
+    margin-top: 15%;
 }
 
 .request-quote-container .cta-button {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color); /* Adjust border style as needed */
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: inline-block;
+    border: 2px solid var(--secondary-color);
     text-align: center;
     text-decoration: none;
-    margin-top: 20px; /* Ensure this margin is present to position the button correctly */
-}
-
-.request-quote-container .cta-button:hover {
-    background-color: #e0c500;
+    margin-top: 20px;
 }
 
 /* Mobile Menu */
@@ -562,4 +541,20 @@ form input[type="submit"]:hover {
     .navbar-toggle {
         display: none;
     }
+}
+
+/* Footer Icons and Hyperlinks */
+.footer-contact-icon {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#footer-content p a {
+    margin-left: 5px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#footer-content p a:hover {
+    text-decoration: underline;
 }

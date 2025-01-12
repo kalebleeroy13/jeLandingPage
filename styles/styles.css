@@ -19,6 +19,7 @@ body {
 /* Centered text styling */
 .centered-text {
     text-align: center;
+    color: var(--primary-color);
 }
 
 /* Header Styling */
@@ -182,6 +183,7 @@ nav a[href="contactUs.html"] {
     background: rgba(0,0,0,0.5);
     padding: 20px;
     border-radius: 10px;
+    color: var(--primary-color); /* Updated to match header */
 }
 
 /* Section Styling */
@@ -346,99 +348,20 @@ footer p {
     text-align: center;
 }
 
-/* Form Styling */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 80%; /* Make the form smaller */
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    background-color: var(--background-color); /* Add background color */
-    border: 4px solid #ffffff; /* Make the form thicker */
+/* Footer Icons and Hyperlinks */
+.footer-contact-icon {
+    margin-right: 5px;
+    vertical-align: middle;
 }
 
-form label,
-#contact-form label {
-    margin-bottom: 5px;
-    border: none;
+#footer-content p a {
+    margin-left: 5px;
+    color: var(--primary-color);
+    text-decoration: none;
 }
 
-form .form-group,
-#contact-form input, #contact-form select, #contact-form textarea,
-.map-image {
-    width: 100%;
-    display: block;
-    margin: 20px 0;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form select,
-form textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: var(--background-color);
-    box-sizing: border-box;
-}
-
-form input[type="submit"],
-.request-quote-container .cta-button,
-.request-quote-container .cta-button:hover {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: block;
-    margin: 0 auto;
-}
-
-form input[type="submit"]:hover {
-    background-color: #e0c500;
-}
-
-/* Align contact form and details side by side */
-#contact-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 40px;
-}
-
-#contact-intro {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#contact-details {
-    flex: 1;
-    min-width: 300px;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-#contact-form {
-    flex: 1;
-    min-width: 300px;
-    text-align: left;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Map image styling */
-.map-image {
-    max-width: 40%; /* Make the map image bigger */
-    height: auto;
-    display: block;
-    margin: 20px 0;
+#footer-content p a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
@@ -543,18 +466,97 @@ form input[type="submit"]:hover {
     }
 }
 
-/* Footer Icons and Hyperlinks */
-.footer-contact-icon {
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-#footer-content p a {
-    margin-left: 5px;
+/* Form Styling for contactUs.html */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 90%; /* Widen the form */
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background-color: var(--background-color); /* Add background color */
+    border: 4px solid #ffffff; /* Make the form thicker */
     color: var(--primary-color);
-    text-decoration: none;
 }
 
-#footer-content p a:hover {
-    text-decoration: underline;
+form label {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+form .form-group {
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--background-color);
+    box-sizing: border-box;
+    color: var(--primary-color);
+}
+
+form input[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+form input[type="submit"]:hover {
+    background-color: #e0c500;
+}
+
+/* Align contact form and details side by side */
+#contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+#contact-intro {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#contact-details {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#contact-form {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-color);
+}
+
+/* Map image styling */
+.map-image {
+    max-width: 40%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
 }

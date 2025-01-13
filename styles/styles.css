@@ -388,7 +388,6 @@ footer p {
         max-width: 100%;
     }
 }
-
 /* Button styling */
 .request-quote-container {
     text-align: center;
@@ -467,12 +466,14 @@ footer p {
 }
 
 /* Form Styling for contactUs.html */
+/* Move the form to the left and make it slimmer */
 form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 120%; /* Increased width by 30% */
-    margin: 0 auto;
+    width: 100%; /* Set width to 100% */
+    max-width: 600px; /* Set a max-width for the form to make it slimmer */
+    margin: 0; /* Align the form to the left without margins */
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -517,6 +518,7 @@ form textarea {
 }
 
 form input[type="submit"] {
+    width: 100%; /* Make the submit button wider */
     background-color: inherit; /* Inherit color from form */
     color: inherit; /* Inherit color from form */
     border: none;

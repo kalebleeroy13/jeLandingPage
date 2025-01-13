@@ -19,7 +19,7 @@ body {
 /* Centered text styling */
 .centered-text {
     text-align: center;
-    color: var(--primary-color);
+    color: var (--primary-color);
 }
 
 /* Header Styling */
@@ -194,14 +194,14 @@ nav a[href="contactUs.html"] {
 
 /* Updated Step and Icon Styles */
 .steps-grid .step, .icon-item {
-    background-color: var(--primary-color); /* Black by default */
-    color: var(--background-color);
+    background-color: var(--primary-color); /* Yellow by default */
+    color: var(--background-color); 
     transition: background-color 0.3s, color 0.3s;
 }
 
 .steps-grid .step:hover, .icon-item:hover {
-    background-color: var(--background-color); /* Turn white on hover */
-    color: var(--primary-color);
+    background-color: var(--background-color); /* Turn black on hover */
+    color: var(--primary-color); 
 }
 
 .steps-grid {
@@ -350,12 +350,12 @@ footer p {
 
 /* Footer Icons and Hyperlinks */
 .footer-contact-icon {
-    margin-right: 5px;
+    margin-right: 2px; /* Bring icon closer to the text */
     vertical-align: middle;
 }
 
 #footer-content p a {
-    margin-left: 5px;
+    margin-left: 2px; /* Bring text closer to the icon */
     color: var(--primary-color);
     text-decoration: none;
 }
@@ -388,6 +388,7 @@ footer p {
         max-width: 100%;
     }
 }
+
 /* Button styling */
 .request-quote-container {
     text-align: center;
@@ -399,6 +400,16 @@ footer p {
     text-align: center;
     text-decoration: none;
     margin-top: 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 15px; /* Add rounded edges */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition for hover effect */
+}
+
+.request-quote-container .cta-button:hover {
+    background-color: var(--secondary-color); /* Change background color on hover */
+    color: var(--primary-color); /* Change text color on hover */
+    border-color: var(--primary-color); /* Change border color on hover */
 }
 
 /* Mobile Menu */

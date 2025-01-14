@@ -116,6 +116,34 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     padding: 20px;
     border-radius: 10px;
     color: var(--primary-color);
+    text-align: center;  /* Center the text content */
+}
+
+#hero-text h1 {
+    margin-bottom: 20px;  /* Add margin to the h1 element */
+}
+
+#hero-text p {
+    margin-bottom: 40px;  /* Add margin to the p element to create space above the button */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+#hero-text .cta-button {
+    margin-top: 20px;  /* Add margin to move the button down */
 }
 
 /* Center "Our Services" Section */
@@ -241,48 +269,6 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
 
 .work-text {
     margin-top: 20px;
-}
-
-footer, #footer-placeholder {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    text-align: center;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-#footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-#general-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-right: 20px;
-}
-
-#service-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 20px;
-}
-
-#general-links a, #service-links a {
-    color: var(--primary-color);
-    text-decoration: none;
-    margin: 5px 0;
-}
-
-#general-links a:hover, #service-links a:hover {
-    text-decoration: underline;
 }
 
 #footer-logo {

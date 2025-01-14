@@ -118,13 +118,11 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     color: var(--primary-color);
 }
 
+/* Center "Our Services" Section */
 #services-header, #services-description {
     text-align: center;
-    margin: 20px 0;
-}
-
-#services-header {
-    font-size: 2em;
+    margin: 20px auto;
+    max-width: 1000px;
 }
 
 #intro, #how-it-works {
@@ -132,13 +130,13 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     text-align: center;
 }
 
-.steps-grid .step, .icon-item {
+.steps-grid .step, .icon-item, .cta-button {
     background-color: var(--primary-color);
     color: var(--background-color);
     transition: background-color 0.3s, color 0.3s;
 }
 
-.steps-grid .step:hover, .icon-item:hover {
+.steps-grid .step:hover, .icon-item:hover, .cta-button:hover {
     background-color: var(--background-color);
     color: var(--primary-color);
 }
@@ -324,9 +322,11 @@ footer p {
     }
 }
 
+/* Button styling */
 .request-quote-container {
     text-align: center;
     margin-top: 15%;
+    margin-bottom: 20px;
 }
 
 .request-quote-container .cta-button {
@@ -419,13 +419,19 @@ footer p {
 }
 
 /* Form Styling for contactUs.html */
+.request-quote-container {
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 20px;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Center the form */
     width: 100%;
     max-width: 600px;
-    margin: 0;
+    margin: 0 auto;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -519,7 +525,7 @@ form input[type="submit"]:hover {
 #contact-form {
     flex: 1;
     min-width: 300px;
-    text-align: left;
+    text-align: center; /* Center the h2 element */
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;

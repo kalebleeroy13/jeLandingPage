@@ -119,10 +119,24 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
 }
 
 /* Center "Our Services" Section */
-#services-header, #services-description {
+#services-overview, .centered-content {
     text-align: center;
     margin: 20px auto;
-    max-width: 1000px;
+}
+
+/* Explicitly Center "Our Services" Header */
+#services-overview h1 {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+}
+
+/* Center "Our Services" Paragraphs */
+#services-overview p {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 #intro, #how-it-works {
@@ -530,6 +544,10 @@ form input[type="submit"]:hover {
     display: flex;
     flex-direction: column;
     color: var(--primary-color);
+}
+
+#contact-form h2 {
+    text-align: center; /* Center the h2 element explicitly */
 }
 
 #contact-form a {

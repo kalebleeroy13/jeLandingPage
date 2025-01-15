@@ -3,8 +3,8 @@
     --secondary-color: #333333;
     --background-color: #000000;
     --font-family: 'Roboto', sans-serif;
-    --font-size-large: 1.1vw;  /* Adjusted from 1.25vw to 1.1vw */
-    --call-us-text-color: #000000;
+    --font-size-large: 1.2vw;  /* Adjusted from 1.25vw to 1.1vw */
+    --call-us-text-color: #FFD700;
 }
 
 body {
@@ -24,7 +24,7 @@ header, #header-placeholder, footer, #footer-placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1vw 2vw;
+    padding: 1vw 1vw;
     background-color: var(--background-color);
     color: var(--primary-color);
     position: sticky;
@@ -33,7 +33,7 @@ header, #header-placeholder, footer, #footer-placeholder {
 }
 
 #logo-container img, #header-logo, #footer-logo {
-    width: 12vw;  /* Enlarged from 10vw to 12vw for better visibility */
+    width: 15vw;  /* Enlarged from 12vw to 15vw for better visibility */
     height: auto;
     margin: 0;
     padding: 0;
@@ -316,7 +316,7 @@ footer, #footer-placeholder {
 }
 
 #footer-logo {
-    width: 150px;
+    width: 15vw;  /* Enlarged for better visibility */
     height: auto;
 }
 

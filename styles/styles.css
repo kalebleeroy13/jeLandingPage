@@ -3,7 +3,7 @@
     --secondary-color: #333333;
     --background-color: #000000;
     --font-family: 'Roboto', sans-serif;
-    --font-size-large: 1.25vw;
+    --font-size-large: 1.1vw;  /* Adjusted from 1.25vw to 1.1vw */
     --call-us-text-color: #000000;
 }
 
@@ -33,7 +33,7 @@ header, #header-placeholder, footer, #footer-placeholder {
 }
 
 #logo-container img, #header-logo, #footer-logo {
-    width: 10vw;
+    width: 12vw;  /* Enlarged from 10vw to 12vw for better visibility */
     height: auto;
     margin: 0;
     padding: 0;
@@ -271,10 +271,53 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     margin-top: 20px;
 }
 
+footer, #footer-placeholder {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;  /* Ensures elements are stacked */
+}
+
+#footer-content {
+    display: flex;
+    justify-content: center;  /* Ensures columns are next to the logo */
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#general-links, #service-links {
+    display: flex;
+    flex-direction: column;  /* Column format */
+    align-items: center;
+    margin: 0 10px;  /* Smaller margin to bring links closer to the logo */
+}
+
+#footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;  /* Margin to position logo between the links */
+}
+
+#general-links a, #service-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+#general-links a:hover, #service-links a:hover {
+    text-decoration: underline;
+}
+
 #footer-logo {
     width: 150px;
     height: auto;
-    margin: 0 10px;
 }
 
 footer p {
@@ -545,8 +588,9 @@ form input[type="submit"]:hover {
     text-decoration: underline;
 }
 
+/* Enlarged map-image for better visibility */
 .map-image {
-    max-width: 40%;
+    max-width: 60%;  /* Enlarged from 55% to 60% */
     height: auto;
     display: block;
     margin: 20px 0;

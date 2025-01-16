@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const dropdown = document.querySelector('.dropdown');
     const dropdownContent = document.querySelector('.custom-dropdown-menu');
-    const logo = document.getElementById('logo');
-    const headerLogo = document.getElementById('header-logo');
     const headerPlaceholder = document.getElementById('header-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
     const navbarToggle = document.querySelector('.navbar-toggle');
@@ -38,14 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function animateLogo() {
-        if (logo && headerLogo) {
-            setTimeout(() => {
-                logo.style.display = 'none';
-                document.body.classList.add('logo-faded');
-                headerLogo.style.display = 'inline-block';
-                headerLogo.style.opacity = 1;
-            }, 2000); // 2 seconds total for animations
-        }
+        const overlay = document.getElementById("landing-overlay");
+        setTimeout(() => {
+            overlay.style.display = "none";
+        }, 6000);  // 4 seconds for the animation + 2 seconds delay
     }
 
     function loadHeaderFooter() {

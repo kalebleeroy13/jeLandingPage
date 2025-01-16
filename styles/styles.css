@@ -604,7 +604,7 @@ form input[type="submit"]:hover {
 
 #landing-logo {
     width: 50vw;
-    animation: shrink 4s ease-in-out forwards;
+    animation: diagonalMoveUpLeft 4s ease-in-out forwards;
 }
 
 @keyframes fadeOut {
@@ -617,11 +617,13 @@ form input[type="submit"]:hover {
     }
 }
 
-@keyframes shrink {
+@keyframes diagonalMoveUpLeft {
     0% {
         width: 50vw;
+        transform: translate(0, 0);
     }
     100% {
         width: 15vw;
+        transform: translate(-200%, -200%);
     }
 }

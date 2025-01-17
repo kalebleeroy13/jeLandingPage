@@ -624,6 +624,6 @@ form input[type="submit"]:hover {
     }
     100% {
         width: 15vw;
-        transform: translate(-278%, -270%);
+        transform: translate(-248%, -250%);
     }
 }

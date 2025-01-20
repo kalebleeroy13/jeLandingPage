@@ -1,9 +1,48 @@
 function toggleMenu() {
-    const nav = document.querySelector('nav ul');
+    const nav = document.querySelector('.nav-container');
     nav.classList.toggle('open');
     // Update the aria-expanded attribute
     const isExpanded = nav.classList.contains('open');
     document.getElementById('menu-icon').setAttribute('aria-expanded', isExpanded);
+}
+
+function addDropdownListeners() {
+    const dropdownButton = document.querySelector('.dropdown-button');
+    const dropdownContent = document.querySelector('.custom-dropdown-menu');
+
+    // Check if the viewport is smaller
+    const isSmallViewport = window.matchMedia("(max-width: 768px)").matches;
+
+    if (dropdownButton && dropdownContent && isSmallViewport) {
+        dropdownButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            let expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
+            dropdownButton.setAttribute('aria-expanded', !expanded);
+            dropdownContent.classList.toggle('show');
+        });
+    }
+}
+
+function addFadeInOnClick() {
+    const links = document.querySelectorAll('a');
+
+    links.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetUrl = this.href;
+
+            // Remove existing fade-in classes
+            links.forEach(link => link.classList.remove('fade-in'));
+
+            // Add fade-in class
+            this.classList.add('fade-in');
+
+            // Navigate to the target URL after the animation
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 500); // Duration of the animation (0.5s)
+        });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -13,27 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
         img.setAttribute('loading', 'lazy');
     });
 
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownContent = document.querySelector('.custom-dropdown-menu');
     const headerPlaceholder = document.getElementById('header-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
     const navbarToggle = document.querySelector('.navbar-toggle');
-
-    function addDropdownListeners() {
-        if (dropdown && dropdownContent) {
-            const showDropdown = () => dropdownContent.classList.add('show');
-            const hideDropdown = (event) => {
-                if (!dropdown.contains(event.relatedTarget)) {
-                    dropdownContent.classList.remove('show');
-                }
-            };
-
-            dropdown.addEventListener('mouseover', showDropdown);
-            dropdown.addEventListener('mouseout', hideDropdown);
-            dropdownContent.addEventListener('mouseover', showDropdown);
-            dropdownContent.addEventListener('mouseout', hideDropdown);
-        }
-    }
 
     function animateLogo() {
         const overlay = document.getElementById("landing-overlay");
@@ -52,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (window.location.pathname.endsWith('index.html')) {
                         animateLogo(); // Animate the logo on the index page
                     }
+                    addFadeInOnClick(); // Add fade-in effect to links
                 }).catch(error => {
                     console.error('Error loading header:', error);
                 });
@@ -98,4 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    addFadeInOnClick(); // Add fade-in effect to links on initial load
 });

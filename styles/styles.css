@@ -5,6 +5,22 @@
     --font-family: 'Roboto', sans-serif;
     --font-size-large: 1.2vw;
     --call-us-text-color: #FFD700;
+    --transition-duration: 0.3s; /* New variable for transition duration */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to elements when a class is added */
+.fade-in {
+    animation: fadeIn 0.75s ease-in-out;
 }
 
 body {
@@ -88,11 +104,21 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     color: #E1306C;
     margin-right: 1vw;
     font-size: 2em;
-    transition: color 0.3s;
+    transition: color var(--transition-duration);
 }
 
 .nav-container i.fab.fa-instagram:hover {
     color: #C13584;
+}
+
+/* Keep dropdown menu for smaller screens */
+@media (max-width: 768px) {
+    .dropdown .custom-dropdown-menu {
+        display: none; /* Hide dropdown by default */
+    }
+    .dropdown .custom-dropdown-menu.show {
+        display: block; /* Show dropdown when activated */
+    }
 }
 
 #hero {
@@ -134,7 +160,7 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     color: var(--background-color);
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
 .cta-button:hover {
@@ -172,7 +198,7 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
 .steps-grid .step, .icon-item, .cta-button {
     background-color: var(--primary-color);
     color: var(--background-color);
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
 .steps-grid .step:hover, .icon-item:hover, .cta-button:hover {
@@ -213,13 +239,13 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     border-radius: 8px;
     text-align: center;
     text-decoration: none;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
 }
 
 .icon-item i {
     font-size: 48px;
     margin-bottom: 10px;
-    transition: transform 0.3s, color 0.3s;
+    transition: transform var(--transition-duration), color var(--transition-duration);
 }
 
 .icon-item:hover i {
@@ -257,7 +283,7 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: transform var(--transition-duration);
 }
 
 .work-image:hover {
@@ -268,6 +294,7 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     margin-top: 20px;
 }
 
+/* Footer */
 footer, #footer-placeholder {
     background-color: var(--background-color);
     color: var(--primary-color);
@@ -333,30 +360,6 @@ footer p {
     text-decoration: underline;
 }
 
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    #contact-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #contact-details, #contact-form {
-        width: 100%;
-    }
-
-    .work-images {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .work-image {
-        max-width: 100%;
-    }
-}
-
 /* Button styling */
 .request-quote-container {
     text-align: center;
@@ -372,7 +375,7 @@ footer p {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border-radius: 15px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    transition: background-color var(--transition-duration), color var(--transition-duration), border-color var(--transition-duration);
 }
 
 .request-quote-container .cta-button:hover {
@@ -402,7 +405,7 @@ footer p {
         border-radius: 2px;
     }
 
-    nav ul {
+    .nav-container {
         display: none;
         flex-direction: column;
         width: 100%;
@@ -413,16 +416,21 @@ footer p {
         z-index: 999;
     }
 
-    nav ul.open {
+    .nav-container.open {
         display: flex;
     }
 
-    nav ul li {
+    .nav-container ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-container ul li {
         margin: 0;
         text-align: center;
     }
 
-    nav a {
+    .nav-container a {
         padding: 10px;
         width: 100%;
         display: block;
@@ -441,25 +449,19 @@ footer p {
     }
 
     .navbar-toggle {
-        display: none;
+        display: none; /* Hide the menu icon on larger screens */
     }
 
     .dropdown .custom-dropdown-menu {
-        display: none;
+        display: none; /* Hide dropdown menu on larger screens */
     }
 
-    .dropdown > a {
-        display: block;
+    .dropdown:hover .custom-dropdown-menu {
+        display: none; /* Ensure dropdown menu doesn't appear on hover */
     }
 }
 
 /* Form Styling for contactUs.html */
-.request-quote-container {
-    text-align: center;
-    margin-top: 15%;
-    margin-bottom: 20px;
-}
-
 form {
     display: flex;
     flex-direction: column;
@@ -472,8 +474,8 @@ form {
     border-radius: 10px;
     background-color: var(--background-color);
     border: 4px solid #ffffff;
-    color: var(--primary-color);
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+    color: var (--primary-color);
+    transition: transform var (--transition-duration), box-shadow var (--transition-duration), background-color var (--transition-duration), color var (--transition-duration);
 }
 
 form:hover {
@@ -506,7 +508,7 @@ form textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: var(--background-color);
-    color: var(--primary-color);
+    color: var (--primary-color);
     box-sizing: border-box;
 }
 
@@ -599,22 +601,11 @@ form input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    animation: fadeOut 2s ease-in-out forwards 4s;
 }
 
 #landing-logo {
     width: 50vw;
     animation: diagonalMoveUpLeft 4s ease-in-out forwards;
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        display: none;
-    }
 }
 
 @keyframes diagonalMoveUpLeft {

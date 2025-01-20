@@ -40,7 +40,7 @@ function addFadeInOnClick() {
             // Navigate to the target URL after the animation
             setTimeout(() => {
                 window.location.href = targetUrl;
-            }, 500); // Duration of the animation (0.5s)
+            }, 1000); // Duration of the animation (1s as previously updated)
         });
     });
 }
@@ -63,30 +63,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 6000);  // 4 seconds for the animation + 2 seconds delay
     }
 
-    function loadHeaderFooter() {
-        if (headerPlaceholder) {
-            fetch('header.html')
-                .then(response => response.text())
-                .then(data => {
-                    headerPlaceholder.innerHTML = data;
+    function fetchAndSetInnerHTML(url, element) {
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                element.innerHTML = data;
+                if (url.includes('header.html')) {
                     addDropdownListeners();
                     if (window.location.pathname.endsWith('index.html')) {
                         animateLogo(); // Animate the logo on the index page
                     }
                     addFadeInOnClick(); // Add fade-in effect to links
-                }).catch(error => {
-                    console.error('Error loading header:', error);
-                });
+                }
+            }).catch(error => {
+                console.error(`Error loading ${url}:`, error);
+            });
+    }
+
+    function loadHeaderFooter() {
+        if (headerPlaceholder) {
+            fetchAndSetInnerHTML('header.html', headerPlaceholder);
         }
 
         if (footerPlaceholder) {
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    footerPlaceholder.innerHTML = data;
-                }).catch(error => {
-                    console.error('Error loading footer:', error);
-                });
+            fetchAndSetInnerHTML('footer.html', footerPlaceholder);
         }
     }
 
@@ -116,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navigator.serviceWorker.register('/sw.js').then((registration) => {
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
             }).catch((error) => {
-                console.log('ServiceWorker registration failed: ', error);
+                console.log('ServiceWorker registration failed:', error);
             });
         });
     }

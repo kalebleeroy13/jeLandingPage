@@ -10,17 +10,26 @@ function addDropdownListeners() {
     const dropdownButton = document.querySelector('.dropdown-button');
     const dropdownContent = document.querySelector('.custom-dropdown-menu');
 
-    // Check if the viewport is smaller
-    const isSmallViewport = window.matchMedia("(max-width: 768px)").matches;
+    const handleDropdownToggle = () => {
+        const isSmallViewport = window.matchMedia("(max-width: 768px)").matches;
 
-    if (dropdownButton && dropdownContent && isSmallViewport) {
-        dropdownButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            let expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
-            dropdownButton.setAttribute('aria-expanded', !expanded);
-            dropdownContent.classList.toggle('show');
-        });
-    }
+        if (dropdownButton && dropdownContent) {
+            if (isSmallViewport) {
+                dropdownButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    let expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
+                    dropdownButton.setAttribute('aria-expanded', !expanded);
+                    dropdownContent.classList.toggle('show');
+                });
+            } else {
+                dropdownButton.removeEventListener('click', handleDropdownToggle);
+                dropdownContent.classList.remove('show');
+            }
+        }
+    };
+
+    window.addEventListener('resize', handleDropdownToggle);
+    handleDropdownToggle(); // Initial check on page load
 }
 
 function addFadeInOnClick() {
@@ -115,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Register service worker (if applicable)
+    // Register service worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js').then((registration) => {
@@ -123,6 +132,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }).catch((error) => {
                 console.log('ServiceWorker registration failed:', error);
             });
+
+            // Request background sync for latest content
+            if (registration.sync) {
+                registration.sync.register('sync-updated-content').then(() => {
+                    console.log('Background sync registered');
+                }).catch((error) => {
+                    console.log('Background sync registration failed:', error);
+                });
+            }
         });
     }
 

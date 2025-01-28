@@ -294,6 +294,25 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     margin-top: 20px;
 }
 
+/* Collage Layout */
+.collage-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.collage-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.collage-image:hover {
+    transform: scale(1.1);
+}
+
 /* Footer */
 footer, #footer-placeholder {
     background-color: var(--background-color);

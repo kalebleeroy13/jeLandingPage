@@ -37,19 +37,18 @@ function addFadeInOnClick() {
 
     links.forEach(link => {
         link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const targetUrl = this.href;
+            if (link.href && link.href.indexOf('#') === -1) { // Ignore internal anchor links
+                event.preventDefault();
+                const targetUrl = this.href;
 
-            // Remove existing fade-in classes
-            links.forEach(link => link.classList.remove('fade-in'));
+                // Add fade-out class
+                document.body.classList.add('fade-out');
 
-            // Add fade-in class
-            this.classList.add('fade-in');
-
-            // Navigate to the target URL after the animation
-            setTimeout(() => {
-                window.location.href = targetUrl;
-            }, 1000); // Duration of the animation (1s as previously updated)
+                // Navigate to the target URL after the animation
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 750); // Duration of the animation (0.75s)
+            }
         });
     });
 }
@@ -144,5 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Add fade-in effect to body on initial load
+    document.body.classList.add('fade-in');
     addFadeInOnClick(); // Add fade-in effect to links on initial load
 });

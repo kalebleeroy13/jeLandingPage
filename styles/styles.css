@@ -198,7 +198,7 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
 .steps-grid .step, .icon-item, .cta-button {
     background-color: var(--primary-color);
     color: var(--background-color);
-    transition: background-color var(--transition-duration), color var (--transition-duration);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
 .steps-grid .step:hover, .icon-item:hover, .cta-button:hover {
@@ -294,25 +294,6 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     margin-top: 20px;
 }
 
-/* Collage Layout */
-.collage-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.collage-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.collage-image:hover {
-    transform: scale(1.1);
-}
-
 /* Footer */
 footer, #footer-placeholder {
     background-color: var(--background-color);
@@ -401,4 +382,263 @@ footer p {
     background-color: var(--secondary-color);
     color: var(--primary-color);
     border-color: var(--primary-color);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: flex;
+        margin-left: auto;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 24px;
+        width: 30px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .navbar-toggle span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-color: #333;
+        border-radius: 2px;
+    }
+
+    .nav-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--background-color);
+        z-index: 999;
+    }
+
+    .nav-container.open {
+        display: flex;
+    }
+
+    .nav-container ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-container ul li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-container a {
+        padding: 10px;
+        width: 100%;
+        display: block;
+    }
+
+    .call-us-button {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) {
+    .call-us-button {
+        position: relative;
+    }
+
+    .navbar-toggle {
+        display: none; /* Hide the menu icon on larger screens */
+    }
+
+    .dropdown .custom-dropdown-menu {
+        display: none; /* Hide dropdown menu on larger screens */
+    }
+
+    .dropdown:hover .custom-dropdown-menu {
+        display: none; /* Ensure dropdown menu doesn't appear on hover */
+    }
+}
+
+/* Form Styling for contactUs.html */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background-color: var(--background-color);
+    border: 4px solid #ffffff;
+    color: var(--primary-color);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
+}
+
+form:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+form label {
+    margin-bottom: 5px;
+    color: inherit;
+    display: block;
+}
+
+form .form-group {
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+form input[type="submit"]:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+#contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+#contact-intro {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#contact-details {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#contact-details a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#contact-details a:hover {
+    text-decoration: underline;
+}
+
+#contact-form {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-color);
+}
+
+#contact-form h2 {
+    text-align: center;
+}
+
+#contact-form a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#contact-form a:hover {
+    text-decoration: underline;
+}
+
+.map-image {
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
+
+/* Landing Page Logo Animation */
+#landing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#landing-logo {
+    width: 50vw;
+    animation: diagonalMoveUpLeft 4s ease-in-out forwards;
+}
+
+@keyframes diagonalMoveUpLeft {
+    0% {
+        width: 50vw;
+        transform: translate(0, 0);
+    }
+    100% {
+        width: 15vw;
+        transform: translate(-248%, -250%);
+    }
+}
+
+/* Portfolio Grid Layout */
+.grid-collage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.grid-item {
+    overflow: hidden;
+}
+
+.grid-image {
+    width: 100%;
+    height: 150px; /* Set a fixed height for smaller images */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.grid-image:hover {
+    transform: scale(1.1);
 }

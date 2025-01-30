@@ -8,7 +8,7 @@
     --transition-duration: 0.3s; /* New variable for transition duration */
 }
 
-/* Fade-in animation */
+/* Updated Fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -18,9 +18,21 @@
     }
 }
 
-/* Apply the animation to elements when a class is added */
-.fade-in {
-    animation: fadeIn 0.75s ease-in-out;
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+body.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+body.fade-out {
+    animation: fadeOut 1s ease-in-out;
 }
 
 body {
@@ -111,6 +123,58 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     color: #C13584;
 }
 
+/* Loading overlay styles */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+}
+
+body.loaded #loading-overlay {
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction with the overlay once it's hidden */
+}
+
+/* Rising sun animation */
+@keyframes risingSun {
+    0% {
+        transform: translateY(100px) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 1;
+    }
+}
+
+#rising-sun {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    background-color: gold; /* Sun color */
+    border-radius: 50%;
+    animation: risingSun 3s infinite; /* Rising sun animation */
+}
+
+#rising-sun-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
 /* Keep dropdown menu for smaller screens */
 @media (max-width: 768px) {
     .dropdown .custom-dropdown-menu {
@@ -197,7 +261,7 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
 
 .steps-grid .step, .icon-item, .cta-button {
     background-color: var(--primary-color);
-    color: var(--background-color);
+    color: var (--background-color);
     transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
@@ -379,7 +443,7 @@ footer p {
 }
 
 .request-quote-container .cta-button:hover {
-    background-color: var(--secondary-color);
+    background-color: var (--secondary-color);
     color: var(--primary-color);
     border-color: var(--primary-color);
 }

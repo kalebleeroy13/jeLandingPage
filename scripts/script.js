@@ -32,26 +32,17 @@ function addDropdownListeners() {
     handleDropdownToggle(); // Initial check on page load
 }
 
-function addFadeInOnClick() {
-    const links = document.querySelectorAll('a');
-
-    links.forEach(link => {
-        link.addEventListener('click', function(event) {
-            if (link.href && link.href.indexOf('#') === -1) { // Ignore internal anchor links
-                event.preventDefault();
-                const targetUrl = this.href;
-
-                // Add fade-out class
-                document.body.classList.add('fade-out');
-
-                // Navigate to the target URL after the animation
-                setTimeout(() => {
-                    window.location.href = targetUrl;
-                }, 750); // Duration of the animation (0.75s)
-            }
-        });
-    });
+function createLoadingOverlay() {
+    if (!document.getElementById('loading-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.id = 'loading-overlay';
+        overlay.innerHTML = '<div id="rising-sun-container"><div id="rising-sun"></div></div>';
+        document.body.prepend(overlay);
+    }
 }
+
+// Create and insert the loading overlay as soon as the script runs
+createLoadingOverlay();
 
 document.addEventListener('DOMContentLoaded', function() {
     // Dynamically add lazy loading to all images
@@ -86,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (window.location.pathname.endsWith('index.html')) {
                         animateLogo(); // Animate the logo on the index page
                     }
-                    addFadeInOnClick(); // Add fade-in effect to links
                 }
             }).catch(error => {
                 console.error(`Error loading ${url}:`, error);
@@ -145,5 +135,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add fade-in effect to body on initial load
     document.body.classList.add('fade-in');
-    addFadeInOnClick(); // Add fade-in effect to links on initial load
+
+    // Add transition effect when clicking on links
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const href = link.getAttribute('href');
+            document.body.classList.remove('fade-in');
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = href;
+            }, 1000); // Match the duration of the fade-out animation (1s)
+        });
+    });
+
+    // Remove loading overlay once the page has fully loaded
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+        setTimeout(() => {
+            const loadingOverlay = document.getElementById('loading-overlay');
+            if (loadingOverlay) {
+                loadingOverlay.remove();
+            }
+        }, 1000); // Duration of the fade-in animation (1s)
+    });
 });

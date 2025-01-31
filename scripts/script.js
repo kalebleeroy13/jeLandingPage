@@ -151,3 +151,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000); // Duration of the fade-in animation (1s)
     });
 });
+

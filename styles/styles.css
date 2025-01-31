@@ -159,12 +159,23 @@ body.loaded #loading-overlay {
     }
 }
 
+@keyframes burst {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
 #rising-sun {
     width: 100px; /* Adjust size as needed */
     height: 100px;
     background-color: gold; /* Sun color */
     border-radius: 50%;
-    animation: risingSun 3s infinite; /* Rising sun animation */
+    animation: risingSun 2s ease-in-out forwards, burst 1s 2s ease-in-out forwards;
 }
 
 #rising-sun-container {
@@ -274,7 +285,8 @@ body.loaded #loading-overlay {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    max-width: 0 auto;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .step {

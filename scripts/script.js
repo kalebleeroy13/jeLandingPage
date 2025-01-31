@@ -55,13 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     const navbarToggle = document.querySelector('.navbar-toggle');
 
-    function animateLogo() {
-        const overlay = document.getElementById("landing-overlay");
-        setTimeout(() => {
-            overlay.style.display = "none";
-        }, 6000);  // 4 seconds for the animation + 2 seconds delay
-    }
-
     function fetchAndSetInnerHTML(url, element) {
         fetch(url)
             .then(response => {
@@ -74,9 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.innerHTML = data;
                 if (url.includes('header.html')) {
                     addDropdownListeners();
-                    if (window.location.pathname.endsWith('index.html')) {
-                        animateLogo(); // Animate the logo on the index page
-                    }
                 }
             }).catch(error => {
                 console.error(`Error loading ${url}:`, error);
@@ -149,8 +139,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Remove loading overlay once the page has fully loaded
-    window.addEventListener('load', () => {
+    // Wait for the end of the sun animation before showing the page
+    const risingSun = document.getElementById('rising-sun');
+    risingSun.addEventListener('animationend', () => {
         document.body.classList.add('loaded');
         setTimeout(() => {
             const loadingOverlay = document.getElementById('loading-overlay');

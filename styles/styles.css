@@ -449,6 +449,8 @@ footer, #footer-placeholder {
     color: var(--primary-color);
     text-decoration: none;
     margin: 5px 0;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
 }
 
 #general-links a:hover, #service-links a:hover {
@@ -459,17 +461,23 @@ footer p {
     margin: 5px 0;
     width: 100%;
     text-align: center;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    justify-content: center; /* Ensure they are centered */
 }
 
 .footer-contact-icon {
-    margin-right: 5px; /* Adjusted to bring icon closer to text */
+    margin-right: 2px; /* Adjusted to bring icon closer to text */
     vertical-align: middle;
+    font-size: 1.2em; /* Adjust icon size if needed */
 }
 
 #footer-content p a {
-    margin-left: 2px;
+    margin-left: 2px; /* Reduced margin to bring icon and text closer */
     color: var(--primary-color);
     text-decoration: none;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
 }
 
 #footer-content p a:hover {
@@ -482,6 +490,7 @@ footer p {
 .icon-item i.fab.fa-instagram {
     color: #E1306C; /* Official Instagram color */
 }
+
 
 /* Form Styling */
 form {

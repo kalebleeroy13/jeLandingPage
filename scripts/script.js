@@ -145,5 +145,14 @@ if ('serviceWorker' in navigator) {
         }
       }, 2000); // Adjust the delay as needed
     }
+  
+    // Conditional Rising Sun Animation
+    if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
+      const sunContainer = document.createElement('div');
+      sunContainer.id = "rising-sun-container";
+      sunContainer.style.display = "flex"; // Show the container
+      sunContainer.innerHTML = '<div id="rising-sun"></div>';
+      document.body.appendChild(sunContainer);
+    }
   });
   

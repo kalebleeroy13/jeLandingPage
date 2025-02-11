@@ -1,7 +1,19 @@
 {
   "name": "Jenergy Electrical and Solar",
   "short_name": "Jenergy",
+  "description": "Providing exceptional solar and electrical services.",
+  "start_url": "/index.html",
   "icons": [
+    {
+      "src": "styles/images/icon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "styles/images/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
     {
       "src": "styles/images/icon-192.png",
       "sizes": "192x192",

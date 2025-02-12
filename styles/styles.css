@@ -7,6 +7,9 @@
     --font-size-large: 1.2em; /* Adjusted font size */
     --call-us-text-color: #FFD700;
     --transition-duration: 0.3s;
+    --border-radius: 5px;
+    --heading-font-weight: 700;
+    --base-padding: 10px;
 }
 
 /* Fade-in and Fade-out Animations */
@@ -140,6 +143,7 @@ nav a, .cta-button, #footer-content a {
 
 nav a:hover, .cta-button:hover, #footer-content a:hover {
     text-decoration: underline;
+    color: var(--primary-color); /* Ensure text turns yellow */
 }
 
 /* Call Us Button in Header */
@@ -176,71 +180,285 @@ nav a:hover, .cta-button:hover, #footer-content a:hover {
     }
 }
 
-/* Loading Overlay Styles */
-#loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    border: 4px solid #ffffff;
+    color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
+}
+
+form:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+form label {
+    margin-bottom: 5px;
+    display: block;
+    color: inherit;
+}
+
+form .form-group {
     width: 100%;
-    height: 100%;
-    background-color: #000000;
+    margin: 10px 0;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea {
+    width: calc(100% - 20px); /* Ensuring input fields have consistent width */
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+form input[type="submit"] {
+    width: calc(100% - 20px); /* Ensuring submit button has consistent width */
+    padding: 10px 20px;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+form input[type="submit"]:hover {
+    background-color: black; /* Updated to turn black */
+    color: var(--primary-color); /* Text turns yellow */
+}
+
+
+/* Contact Section */
+#contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+#contact-intro {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#contact-details, #contact-form {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+
+#contact-details {
+    text-align: left;
+}
+
+#contact-details a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#contact-details a:hover {
+    text-decoration: underline;
+}
+
+#contact-form {
+    text-align: center;
+}
+
+#contact-form h2 {
+    text-align: center;
+}
+
+.map-image {
+    max-width: 60%; /* Adjusted size */
+    height: auto;
+    display: block;
+    margin: 20px 0 20px 0; /* Move image to the left */
+}
+
+/* Footer Styles */
+footer, #footer-placeholder {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#footer-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    transition: opacity 1s ease-in-out;
-    opacity: 1;
-}
-
-body.loaded #loading-overlay {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Sun Animation */
-@keyframes risingSun {
-    0% {
-        transform: translateY(100px) scale(0.5);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    90% {
-        transform: translateY(-40px) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-40px) scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes burst {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(3);
-        opacity: 0;
-    }
-}
-
-#rising-sun {
-    width: 100px;
-    height: 100px;
-    background-color: gold;
-    border-radius: 50%;
-    animation: risingSun 2s ease-in-out forwards, burst 1s 2s ease-in-out forwards;
-}
-
-#rising-sun-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    flex-wrap: wrap;
     width: 100%;
+}
+
+#general-links, #service-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+#footer-logo {
+    width: 18vw; /* Increased size */
+    height: auto;
+    margin: 0 20px;
+}
+
+#general-links a, #service-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 5px 0;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+}
+
+#general-links a:hover, #service-links a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    justify-content: center; /* Ensure they are centered */
+}
+
+.footer-contact-icon {
+    margin-right: 2px; /* Adjusted to bring icon closer to text */
+    vertical-align: middle;
+    font-size: 1.2em; /* Adjust icon size if needed */
+}
+
+#footer-content p a {
+    margin-left: 2px; /* Reduced margin to bring icon and text closer */
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+}
+
+#footer-content p a:hover {
+    text-decoration: underline;
+}
+
+/* Instagram Icon Color */
+.nav-container i.fab.fa-instagram,
+.footer-contact-icon i.fab.fa-instagram,
+.icon-item i.fab.fa-instagram {
+    color: #E1306C; /* Official Instagram color */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: flex;
+        margin-left: auto;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 24px;
+        width: 30px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .navbar-toggle span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+    }
+
+    .nav-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--background-color);
+        z-index: 999;
+    }
+
+    .nav-container.open {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 1vh;
+    }
+
+    .nav-container a {
+        padding: 10px;
+        width: 100%;
+        display: block;
+    }
+
+    .call-us-button {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    nav ul {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 992px) {
+    nav ul {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    nav ul {
+        font-size: 0.9em;
+    }
 }
 
 /* Hero Section */
@@ -410,197 +628,6 @@ body.loaded #loading-overlay {
 .icon-item p {
     margin: 0;
     font-size: 16px;
-}
-
-/* Footer Styles */
-footer, #footer-placeholder {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    text-align: center;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-#footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-#general-links, #service-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 10px;
-}
-
-#footer-logo {
-    width: 18vw; /* Increased size */
-    height: auto;
-    margin: 0 20px;
-}
-
-#general-links a, #service-links a {
-    color: var(--primary-color);
-    text-decoration: none;
-    margin: 5px 0;
-    display: flex;
-    align-items: center; /* Align icon and text vertically */
-}
-
-#general-links a:hover, #service-links a:hover {
-    text-decoration: underline;
-}
-
-footer p {
-    margin: 5px 0;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center; /* Align icon and text vertically */
-    justify-content: center; /* Ensure they are centered */
-}
-
-.footer-contact-icon {
-    margin-right: 2px; /* Adjusted to bring icon closer to text */
-    vertical-align: middle;
-    font-size: 1.2em; /* Adjust icon size if needed */
-}
-
-#footer-content p a {
-    margin-left: 2px; /* Reduced margin to bring icon and text closer */
-    color: var(--primary-color);
-    text-decoration: none;
-    display: flex;
-    align-items: center; /* Align icon and text vertically */
-}
-
-#footer-content p a:hover {
-    text-decoration: underline;
-}
-
-/* Instagram Icon Color */
-.nav-container i.fab.fa-instagram,
-.footer-contact-icon i.fab.fa-instagram,
-.icon-item i.fab.fa-instagram {
-    color: #E1306C; /* Official Instagram color */
-}
-
-
-/* Form Styling */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--background-color);
-    border: 4px solid #ffffff;
-    color: var(--primary-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform var(--transition-duration), box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
-}
-
-form:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    background-color: var(--primary-color);
-    color: var(--background-color);
-}
-
-form label {
-    margin-bottom: 5px;
-    display: block;
-    color: inherit;
-}
-
-form .form-group {
-    width: 100%;
-    margin: 10px 0;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form select,
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form input[type="submit"] {
-    width: 100%;
-    padding: 10px 20px;
-    background-color: inherit;
-    color: inherit;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-form input[type="submit"]:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-}
-
-/* Contact Section */
-#contact-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 40px;
-}
-
-#contact-intro {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
-#contact-details, #contact-form {
-    flex: 1;
-    min-width: 300px;
-    margin-bottom: 20px;
-}
-
-#contact-details {
-    text-align: left;
-}
-
-#contact-details a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-#contact-details a:hover {
-    text-decoration: underline;
-}
-
-#contact-form {
-    text-align: center;
-}
-
-#contact-form h2 {
-    text-align: center;
-}
-
-.map-image {
-    max-width: 60%; /* Adjusted size */
-    height: auto;
-    display: block;
-    margin: 20px 0 20px 0; /* Move image to the left */
 }
 
 /* Portfolio Grid */

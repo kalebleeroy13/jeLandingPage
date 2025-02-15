@@ -14,12 +14,13 @@ if ('serviceWorker' in navigator) {
 }
 
 function toggleMenu() {
-    const nav = document.querySelector('.nav-container');
-    nav.classList.toggle('open');
-    // Update the aria-expanded attribute
-    const isExpanded = nav.classList.contains('open');
+    const navbar = document.querySelector('.nav-container');
+    navbar.classList.toggle('open');
+    const isExpanded = navbar.classList.contains('open');
     document.getElementById('menu-icon').setAttribute('aria-expanded', isExpanded);
 }
+
+// Existing functions and event listeners...
 
 function addDropdownListeners() {
     const dropdownButton = document.querySelector('.dropdown-button');
@@ -41,6 +42,7 @@ function addDropdownListeners() {
             } else {
                 dropdownButton.removeEventListener('click', handleDropdownToggle);
                 dropdownContent.classList.remove('show');
+                dropdownButton.onclick = null; // Ensure "Services" link works on larger screens
             }
         }
     }
@@ -49,21 +51,8 @@ function addDropdownListeners() {
     checkViewport(); // Initial check on page load
 }
 
-function createLoadingOverlay() {
-    if (!document.getElementById('loading-overlay')) {
-        const overlay = document.createElement('div');
-        overlay.id = 'loading-overlay';
-        overlay.innerHTML = `
-            <div id="rising-sun-container">
-                <div id="rising-sun"></div>
-            </div>
-        `;
-        document.body.prepend(overlay);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Dynamically add lazy loading to all images
+document.addEventListener('DOMContentLoaded', function() {
+    // Lazy loading for images
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         img.setAttribute('loading', 'lazy');
@@ -119,17 +108,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (loadingOverlay) {
                         loadingOverlay.remove();
                     }
-                }, 1000); // Duration of the fade-in animation (1s)
+                }, 1000);
             });
         } else {
-            // If the rising sun element is not found, remove the loading overlay after a delay
             setTimeout(() => {
                 document.body.classList.add('loaded');
                 const loadingOverlay = document.getElementById('loading-overlay');
                 if (loadingOverlay) {
                     loadingOverlay.remove();
                 }
-            }, 2000); // Adjust the delay as needed
+            }, 2000);
         }
     } else {
         // For other pages, add fade-in effect to body on initial load
@@ -139,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add transition effect when clicking on links
     document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (event) => {
-            // Ensure the link is not an anchor or a JavaScript action
             const href = link.getAttribute('href');
             if (href && !href.startsWith('#') && !href.startsWith('javascript:') && !link.hasAttribute('download') && !link.hasAttribute('data-no-transition')) {
                 event.preventDefault();
@@ -147,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.body.classList.add('fade-out');
                 setTimeout(() => {
                     window.location.href = href;
-                }, 500); // Match the duration of the fade-out animation (0.5s)
+                }, 500);
             }
         });
     });
@@ -155,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Form Validation (if applicable)
     const form = document.querySelector('form');
     if (form) {
-        form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', function(event) {
             if (!validateForm()) {
                 event.preventDefault();
             }
@@ -165,23 +152,19 @@ document.addEventListener('DOMContentLoaded', function () {
     function validateForm() {
         let isValid = true;
 
-        // Get form fields
         const nameField = document.querySelector('input[name="name"]');
         const emailField = document.querySelector('input[name="email"]');
         const phoneField = document.querySelector('input[name="number"]');
         const serviceField = document.querySelector('select[name="service"]');
         const messageField = document.querySelector('textarea[name="message"]');
 
-        // Clear previous error messages
         document.querySelectorAll('.error-message').forEach(el => el.remove());
 
-        // Validate name
         if (nameField && nameField.value.trim() === "") {
             showError(nameField, "Name is required");
             isValid = false;
         }
 
-        // Validate email
         if (emailField && emailField.value.trim() === "") {
             showError(emailField, "Email is required");
             isValid = false;
@@ -190,19 +173,16 @@ document.addEventListener('DOMContentLoaded', function () {
             isValid = false;
         }
 
-        // Validate phone
         if (phoneField && phoneField.value.trim() !== "" && !validatePhone(phoneField.value)) {
             showError(phoneField, "Please enter a valid phone number");
             isValid = false;
         }
 
-        // Validate service
         if (serviceField && serviceField.value === "") {
             showError(serviceField, "Please select a service");
             isValid = false;
         }
 
-        // Validate message
         if (messageField && messageField.value.trim() === "") {
             showError(messageField, "Message is required");
             isValid = false;
@@ -211,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return isValid;
     }
 
-    // Function to show error messages
     function showError(field, message) {
         const error = document.createElement('div');
         error.className = 'error-message';
@@ -220,15 +199,26 @@ document.addEventListener('DOMContentLoaded', function () {
         field.parentElement.appendChild(error);
     }
 
-    // Function to validate email format
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     }
 
-    // Function to validate phone number format
     function validatePhone(phone) {
         const re = /^\+?[0-9\s\-]{7,15}$/;
         return re.test(String(phone));
+    }
+
+    function createLoadingOverlay() {
+        if (!document.getElementById('loading-overlay')) {
+            const overlay = document.createElement('div');
+            overlay.id = 'loading-overlay';
+            overlay.innerHTML = `
+                <div id="rising-sun-container">
+                    <div id="rising-sun"></div>
+                </div>
+            `;
+            document.body.prepend(overlay);
+        }
     }
 });

@@ -1,48 +1,31 @@
 <header>
+    <div id="logo-container">
+        <a href="index.html">
+            <img src="styles/images/jenergyLogo.jpg" alt="Jenergy Electrical Logo" id="logo">
+        </a>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button class="navbar-toggle" id="menu-icon" onclick="toggleMenu()" aria-label="Toggle Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Navigation Menu -->
     <nav aria-label="Main Navigation">
-        <div id="logo-container">
-            <a href="index.html">
-                <img src="styles/images/jenergyLogo.jpg" alt="Jenergy Electrical Logo" id="logo">
-            </a>
-        </div>
-        <button class="menu-icon navbar-toggle" id="menu-icon" onclick="toggleMenu()" aria-label="Toggle Menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-container" id="navbar" aria-expanded="false" aria-label="Dropdown Menu">
+        <div class="nav-container" id="navbar" aria-expanded="false">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="aboutUs.html">About Us</a></li>
                 <li class="dropdown">
                     <a href="services.html" class="dropdown-button" aria-haspopup="true" aria-expanded="false">Services</a>
-                    <div class="custom-dropdown-menu">
-                        <div>
-                            <a href="solarSystems.html" class="icon-link"><i class="fas fa-solar-panel" aria-hidden="true"></i></a>
-                            Solar Systems
-                            <a href="solarSystems.html" class="learn-more">Learn More</a>
-                        </div>
-                        <div>
-                            <a href="batterySystems.html" class="icon-link"><i class="fas fa-battery-full" aria-hidden="true"></i></a>
-                            Battery Systems
-                            <a href="batterySystems.html" class="learn-more">Learn More</a>
-                        </div>
-                        <div>
-                            <a href="evCharging.html" class="icon-link"><i class="fas fa-charging-station" aria-hidden="true"></i></a>
-                            EV Charging
-                            <a href="evCharging.html" class="learn-more">Learn More</a>
-                        </div>
-                        <div>
-                            <a href="generalElectrical.html" class="icon-link"><i class="fas fa-bolt" aria-hidden="true"></i></a>
-                            General Electrical
-                            <a href="generalElectrical.html" class="learn-more">Learn More</a>
-                        </div>
-                    </div>
+                    <!-- Dropdown Menu (if applicable) -->
                 </li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contactUs.html">Contact US</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
                 <li>
-                    <a href="https://www.instagram.com/jenergyelectrical/profilecard/?igshid=NTY4amFkdjI0aXhh" target="_blank" aria-label="Visit our Instagram profile">
+                    <a href="https://www.instagram.com/jenergyelectrical" target="_blank" aria-label="Visit our Instagram profile">
                         <i class="fab fa-instagram" aria-hidden="true"></i>
                     </a>
                 </li>
@@ -51,3 +34,4 @@
         </div>
     </nav>
 </header>
+

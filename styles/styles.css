@@ -523,7 +523,6 @@ nav a {
     max-width: 800px;
 }
 
-
 .content-block {
     display: flex;
     flex-wrap: wrap;
@@ -1027,7 +1026,7 @@ th {
 }
 
 #back-to-top:hover {
-    background-color: var(--background-color);
+    background-color: var (--background-color);
     color: var(--primary-color);
 }
 
@@ -1053,33 +1052,8 @@ th {
     }
 }
 
-/* Print Styles */
-@media print {
-    body {
-        color: black;
-        background-color: white;
-    }
-
-    a {
-        color: black;
-        text-decoration: underline;
-    }
-
-    .no-print {
-        display: none;
-    }
-
-    header, footer {
-        display: none;
-    }
-
-    /* Hide images */
-    img {
-        display: none;
-    }
-}
-/* Solar Systems Content Block Styling */
-#solar-content .content-block {
+/* Peripheral Content Block Styling */
+.peripheral-content .peripheral-block {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -1088,28 +1062,36 @@ th {
     padding: 20px;
 }
 
-#solar-content .content-block .text,
-#solar-content .content-block .image {
+.peripheral-content .peripheral-block .text,
+.peripheral-content .peripheral-block .image {
     flex: 1;
     padding: 20px;
 }
 
-#solar-content .content-block:nth-child(odd) .image {
-    order: 1;
+.peripheral-content .peripheral-block:nth-child(odd) .image {
+    order: 2; /* Move the image to the right */
 }
 
-#solar-content .content-block:nth-child(even) .image {
-    order: 2;
+.peripheral-content .peripheral-block:nth-child(odd) .text {
+    order: 1; /* Move the text to the left */
 }
 
-/* Responsive adjustments for solar content blocks */
+.peripheral-content .peripheral-block:nth-child(even) .image {
+    order: 1; /* Move the image to the left */
+}
+
+.peripheral-content .peripheral-block:nth-child(even) .text {
+    order: 2; /* Move the text to the right */
+}
+
+/* Responsive adjustments for peripheral content blocks */
 @media (max-width: 768px) {
-    #solar-content .content-block {
+    .peripheral-content .peripheral-block {
         flex-direction: column;
     }
 
-    #solar-content .content-block .text,
-    #solar-content .content-block .image {
+    .peripheral-content .text,
+    .peripheral-content .image {
         padding: 10px;
         text-align: center;
     }

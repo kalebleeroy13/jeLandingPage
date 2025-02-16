@@ -1078,4 +1078,40 @@ th {
         display: none;
     }
 }
+/* Solar Systems Content Block Styling */
+#solar-content .content-block {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+#solar-content .content-block .text,
+#solar-content .content-block .image {
+    flex: 1;
+    padding: 20px;
+}
+
+#solar-content .content-block:nth-child(odd) .image {
+    order: 1;
+}
+
+#solar-content .content-block:nth-child(even) .image {
+    order: 2;
+}
+
+/* Responsive adjustments for solar content blocks */
+@media (max-width: 768px) {
+    #solar-content .content-block {
+        flex-direction: column;
+    }
+
+    #solar-content .content-block .text,
+    #solar-content .content-block .image {
+        padding: 10px;
+        text-align: center;
+    }
+}
 

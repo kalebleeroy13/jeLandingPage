@@ -20,7 +20,8 @@ self.addEventListener('install', event => {
         '/site.webmanifest',
         '/aboutUs.html',
         '/batterySystems.html',
-        '/solarSystems.html'
+        '/solarSystems.html',
+        '/favicon.ico' // Add the favicon to the cache
       ]);
     })
   );

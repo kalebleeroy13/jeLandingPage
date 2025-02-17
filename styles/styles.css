@@ -676,6 +676,13 @@ form {
     color: var(--primary-color);
     border-radius: var(--border-radius);
     box-sizing: border-box;
+    transition: all 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+form:hover {
+    background-color: var(--primary-color); /* Inverse background color */
+    color: var(--background-color); /* Inverse text color */
+    transform: scale(1.05); /* Slightly enlarge the form on hover */
 }
 
 form label {
@@ -703,8 +710,10 @@ form textarea {
     border: 1px solid #ccc;
     border-radius: var(--border-radius);
     box-sizing: border-box;
+    transition: all 0.3s ease; /* Add transition for smooth hover effect */
 }
 
+/* Keep the current hover effect for submit button */
 form input[type="submit"] {
     width: auto;
     padding: 10px 20px;
@@ -713,11 +722,13 @@ form input[type="submit"] {
     border: none;
     cursor: pointer;
     border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 form input[type="submit"]:hover {
     background-color: var(--background-color);
     color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 /* Contact Section */
@@ -778,9 +789,10 @@ form input[type="submit"]:hover {
 /* Align map image to the left */
 .map-image {
     align-self: flex-start;
-    max-width: 40%;
+    max-width: 85%;
     height: auto;
     margin: 20px 0;
+    display: block;
 }
 
 

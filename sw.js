@@ -12,7 +12,15 @@ self.addEventListener('install', event => {
         '/scripts/script.js',
         '/header.html',
         '/footer.html',
-        // Add other necessary files
+        '/evCharging.html',
+        '/generalElectrical.html',
+        '/portfolio.html',
+        '/contactUs.html',
+        '/services.html',
+        '/site.webmanifest',
+        '/aboutUs.html',
+        '/batterySystems.html',
+        '/solarSystems.html'
       ]);
     })
   );
@@ -49,4 +57,3 @@ self.addEventListener('fetch', event => {
     })
   );
 });
- 

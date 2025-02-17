@@ -1,28 +1,52 @@
-// sw.js
-
-const CACHE_NAME = 'jenergy-cache';
+const CACHE_NAME = `jenergy-cache-${new Date().toISOString()}`;
 
 // Install event
 self.addEventListener('install', event => {
-  // Activate the service worker immediately after installation
   self.skipWaiting();
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll([
+        // Add the initial resources you want to cache here
+        '/index.html',
+        '/styles/styles.css',
+        '/scripts/script.js',
+        '/header.html',
+        '/footer.html',
+        // Add other necessary files
+      ]);
+    })
+  );
 });
 
-// Fetch event - Serve cached resources and update cache in the background
+// Activate event
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
+// Fetch event
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.open(CACHE_NAME).then(cache => {
       return cache.match(event.request).then(cachedResponse => {
         const fetchPromise = fetch(event.request).then(networkResponse => {
-          // Only cache valid responses (status 200)
           if (networkResponse && networkResponse.status === 200) {
             cache.put(event.request, networkResponse.clone());
           }
           return networkResponse;
         });
-        // Return cached response if available, else wait for network response
         return cachedResponse || fetchPromise;
       });
     })
   );
 });
+ 

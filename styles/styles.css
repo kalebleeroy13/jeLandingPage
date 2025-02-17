@@ -175,6 +175,13 @@ nav a {
 
 /* Hide navbar and show hamburger menu on small screens */
 @media (max-width: 768px) {
+    /* Adjust logo size for smaller screens */
+    #logo-container img {
+        width: 20vw; /* Set width to 20% of the viewport width for smaller screens */
+        max-width: 25%; /* Set a smaller maximum width relative to the parent container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
     /* Hide the navbar */
     .nav-container {
         display: none;
@@ -379,6 +386,13 @@ nav {
 nav a {
     border: none;
     outline: none;
+}
+
+/* Dynamic header logo size */
+#logo-container img {
+    width: 20vw; /* Set width to 10% of the viewport width */
+    max-width: 100%; /* Set a maximum width relative to the parent container */
+    height: auto; /* Maintain aspect ratio */
 }
 
 /* Hero Section Styles */
@@ -1085,7 +1099,9 @@ th {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     /* Adjust styles for high-resolution screens */
     #logo-container img {
-        width: 150px; /* Adjust as needed */
+        width: 10vw; /* Set width to 10% of the viewport width */
+        max-width: 20%; /* Set a maximum width relative to the parent container */
+        height: auto; /* Maintain aspect ratio */
     }
 }
 

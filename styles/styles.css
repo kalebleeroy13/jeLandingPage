@@ -591,32 +591,41 @@ nav a {
     color: var(--background-color);
     border-radius: var(--border-radius);
     text-align: center;
-    transition: background-color var(--transition-duration), color var (--transition-duration);
+    transition: background-color var(--transition-duration), color var(--transition-duration), transform var(--transition-duration);
 }
 
 .icon-item:hover {
     background-color: var(--background-color);
-    color: var (--primary-color);
+    color: var(--primary-color);
+    transform: scale(1.05);
 }
 
 .icon-item i {
     font-size: 48px;
     margin-bottom: 10px;
-    transition: transform var (--transition-duration);
+    transition: transform var(--transition-duration), color var(--transition-duration);
 }
 
 .icon-item:hover i {
     transform: scale(1.2);
+    color: var(--primary-color);
 }
 
 .icon-item h2 {
     margin: 10px 0 5px 0;
+    transition: color var(--transition-duration);
 }
 
 .icon-item p {
     margin: 0;
     font-size: 16px;
+    transition: color var(--transition-duration);
 }
+
+.icon-item:hover h2, .icon-item:hover p {
+    color: var(--primary-color);
+}
+
 
 /* Portfolio Grid */
 .grid-collage {

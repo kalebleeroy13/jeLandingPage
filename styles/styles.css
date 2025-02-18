@@ -46,6 +46,13 @@ img {
     text-align: center;
 }
 
+/* Default logo size for larger screens */
+#logo-container img {
+    width: 24vw; /* 10% of the viewport width */
+    height: auto; /* Maintain the aspect ratio */
+    max-width: 100vw; /* Optionally set a maximum width */
+}
+
 /* Fade-in and Fade-out Animations */
 @keyframes fadeIn {
     from { opacity: 0; }

@@ -171,13 +171,33 @@ nav a {
     padding: 0.5vw 1vw;
 }
 
+/* Button Style for "Call Us" */
+.header-call-button .call-us-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFD700; /* Yellow color */
+    color: #000000; /* Black text color */
+    border-radius: 20px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    transition: background-color var(--transition-duration), color var(--transition-duration); /* Smooth transition for hover effects */
+}
+
+/* Hover Effect */
+.header-call-button .call-us-button:hover {
+    background-color: #000000; /* Black background */
+    color: #FFD700; /* Yellow text color */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+
 /* Responsive Navbar Styles */
 
 /* Hide navbar and show hamburger menu on small screens */
 @media (max-width: 768px) {
     /* Adjust logo size for smaller screens */
     #logo-container img {
-        width: 20vw; /* Set width to 20% of the viewport width for smaller screens */
+        width: 15vw; /* Set width to 20% of the viewport width for smaller screens */
         max-width: 25%; /* Set a smaller maximum width relative to the parent container */
         height: auto; /* Maintain aspect ratio */
     }
@@ -388,13 +408,6 @@ nav a {
     outline: none;
 }
 
-/* Dynamic header logo size */
-#logo-container img {
-    width: 20vw; /* Set width to 10% of the viewport width */
-    max-width: 100%; /* Set a maximum width relative to the parent container */
-    height: auto; /* Maintain aspect ratio */
-}
-
 /* Hero Section Styles */
 #hero {
     position: relative;
@@ -523,8 +536,6 @@ nav a {
     color: var(--primary-color);
 }
 
-/* Other styles... */
-
 /* Center the h1 and p elements in solarSystems.html */
 #solar-overview {
     text-align: center;
@@ -633,13 +644,12 @@ nav a {
 .icon-item p {
     margin: 0;
     font-size: 16px;
-    transition: color var(--transition-duration);
+    transition: color var (--transition-duration);
 }
 
 .icon-item:hover h2, .icon-item:hover p {
     color: var(--primary-color);
 }
-
 
 /* Portfolio Grid */
 .grid-collage {
@@ -809,7 +819,6 @@ form input[type="submit"]:hover {
     display: block;
 }
 
-
 /* Footer Styles */
 footer, #footer-placeholder {
     background-color: var(--background-color);
@@ -900,8 +909,6 @@ footer p {
 .footer-instagram i.fab.fa-instagram:hover {
     transform: scale(1.6); /* Slightly enlarge the icon on hover */
 }
-
-
 
 /* Section Titles */
 h1, h2, h3, h4, h5, h6 {
@@ -1165,4 +1172,3 @@ th {
         text-align: center;
     }
 }
-

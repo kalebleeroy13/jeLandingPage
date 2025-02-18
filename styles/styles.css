@@ -50,7 +50,7 @@ img {
 #logo-container img {
     width: 24vw; /* 10% of the viewport width */
     height: auto; /* Maintain the aspect ratio */
-    max-width: 100vw; /* Optionally set a maximum width */
+    max-width: 65vw; /* Optionally set a maximum width */
 }
 
 /* Fade-in and Fade-out Animations */
@@ -194,7 +194,7 @@ nav a {
 .header-call-button .call-us-button:hover {
     background-color: #000000; /* Black background */
     color: #FFD700; /* Yellow text color */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    transform: scale(1.3); /* Slightly enlarge the button on hover */
 }
 
 
@@ -914,7 +914,7 @@ footer p {
 #contact-details i.fab.fa-instagram:hover,
 .footer-instagram-icon i.fab.fa-instagram:hover,
 .footer-instagram i.fab.fa-instagram:hover {
-    transform: scale(1.6); /* Slightly enlarge the icon on hover */
+    transform: scale(1.8); /* Slightly enlarge the icon on hover */
 }
 
 /* Section Titles */

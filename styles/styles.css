@@ -197,7 +197,7 @@ nav a {
 @media (max-width: 768px) {
     /* Adjust logo size for smaller screens */
     #logo-container img {
-        width: 15vw; /* Set width to 20% of the viewport width for smaller screens */
+        width: 10vw; /* Set width to 20% of the viewport width for smaller screens */
         max-width: 25%; /* Set a smaller maximum width relative to the parent container */
         height: auto; /* Maintain aspect ratio */
     }
@@ -1123,7 +1123,7 @@ th {
     /* Adjust styles for high-resolution screens */
     #logo-container img {
         width: 10vw; /* Set width to 10% of the viewport width */
-        max-width: 20%; /* Set a maximum width relative to the parent container */
+        max-width: 10%; /* Set a maximum width relative to the parent container */
         height: auto; /* Maintain aspect ratio */
     }
 }

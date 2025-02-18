@@ -878,14 +878,30 @@ footer p {
     text-decoration: underline;
 }
 
-/* Instagram Icon Color */
+/* Instagram Icon Color with Gradient */
 .nav-container i.fab.fa-instagram,
 .footer-contact-icon i.fab.fa-instagram,
-.icon-item i.fab.fa-instagram {
-    color: #E1306C; /* Official Instagram color */
+.icon-item i.fab.fa-instagram,
+#contact-details i.fab.fa-instagram,
+.footer-instagram-icon i.fab.fa-instagram,
+.footer-instagram i.fab.fa-instagram {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+    -webkit-background-clip: text;
+    background-clip: text; /* Standard property for compatibility */
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease; /* Add a smooth transition effect for hover */
 }
 
-/* Additional Styles */
+.nav-container i.fab.fa-instagram:hover,
+.footer-contact-icon i.fab.fa-instagram:hover,
+.icon-item i.fab.fa-instagram:hover,
+#contact-details i.fab.fa-instagram:hover,
+.footer-instagram-icon i.fab.fa-instagram:hover,
+.footer-instagram i.fab.fa-instagram:hover {
+    transform: scale(1.6); /* Slightly enlarge the icon on hover */
+}
+
+
 
 /* Section Titles */
 h1, h2, h3, h4, h5, h6 {

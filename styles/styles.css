@@ -1177,3 +1177,35 @@ th {
         text-align: center;
     }
 }
+
+/* Reduced Image Size for About Us Page */
+.about-us-image {
+    width: 100%;          /* Ensure the image fills its container */
+    max-width: 40vw;      /* Set a maximum width as viewport width */
+    height: auto;         /* Maintain aspect ratio */
+    max-height: 50vh;     /* Set a maximum height as viewport height */
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-duration);
+}
+
+/* Optional: Reduce Image Size on Smaller Screens for About Us Page */
+@media (max-width: 1024px) {
+    .about-us-image {
+        max-width: 35vw;  /* Adjusted for laptop screens */
+        max-height: 45vh; /* Further reduce the height for laptops */
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-image {
+        max-width: 30vw;
+        max-height: 45vh;  /* Further reduce the height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-image {
+        max-width: 20vw;
+        max-height: 45vh;  /* Further reduce the height for smaller screens */
+    }
+}

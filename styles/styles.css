@@ -187,7 +187,6 @@ nav a {
 .header-call-button .call-us-button:hover {
     background-color: #000000; /* Black background */
     color: #FFD700; /* Yellow text color */
-    transform: scale(1.3); /* Slightly enlarge the button on hover */
 }
 
 /* Responsive Navbar Styles */
@@ -196,8 +195,8 @@ nav a {
 @media (max-width: 768px) {
     /* Adjust logo size for smaller screens */
     #logo-container img {
-        width: 10vw; /* Set width to 20% of the viewport width for smaller screens */
-        max-width: 25%; /* Set a smaller maximum width relative to the parent container */
+        width: 20vw; /* Set width to 20% of the viewport width for smaller screens */
+        max-width: 80%; /* Set a smaller maximum width relative to the parent container */
         height: auto; /* Maintain aspect ratio */
     }
 
@@ -276,6 +275,13 @@ nav a {
     .nav-container {
         display: flex;
         align-items: center;
+    }
+
+       
+    #logo-container img {
+        width: 20vw; /* Set width to 20% of the viewport width for smaller screens */
+        max-width: 80%; /* Set a smaller maximum width relative to the parent container */
+        height: auto; /* Maintain aspect ratio */
     }
 
     /* Hide the hamburger menu icon */
@@ -1121,8 +1127,8 @@ th {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     /* Adjust styles for high-resolution screens */
     #logo-container img {
-        width: 10vw; /* Set width to 10% of the viewport width */
-        max-width: 10%; /* Set a maximum width relative to the parent container */
+        width: 20vw; /* Set width to 10% of the viewport width */
+        max-width: 80%; /* Set a maximum width relative to the parent container */
         height: auto; /* Maintain aspect ratio */
     }
 }

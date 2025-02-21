@@ -15,12 +15,9 @@
         rel="stylesheet">
 
     <!-- Favicon and Web App Manifest -->
-    <link rel="apple-touch-icon" sizes="180x180"
-          href="styles/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32"
-          href="styles/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16"
-          href="styles/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="styles/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="styles/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="styles/images/favicon-16x16.png">
     <link rel="icon" href="favicon.ico">
     <link rel="manifest" href="site.webmanifest">
 </head>
@@ -61,28 +58,37 @@
         <!-- How It Works Section -->
         <section id="how-it-works">
             <h2>How It Works</h2>
-            <div class="steps-grid">
-                <div class="step">
-                    <h3>Step 1</h3>
-                    <p>Book a consultation with one of our solar professionals. We'll discuss your budget, energy requirements, available rebates, and answer any questions you may have.</p>
-                </div>
-                <div class="step">
-                    <h3>Step 2</h3>
-                    <p>Based on our discussion, we'll design a customized solar panel plan tailored to your property.</p>
-                </div>
-                <div class="step">
-                    <h3>Step 3</h3>
-                    <p>After the proposal is signed, we'll obtain pre-approval from your energy provider. We'll also assist you with any necessary rebate forms to secure government funding.</p>
-                </div>
-                <div class="step">
-                    <h3>Step 4</h3>
-                    <p>Schedule a convenient date and time for installation with our team.</p>
-                </div>
-                <div class="step">
-                    <h3>Step 5</h3>
-                    <p>Post-installation, an inspector from EnergySafe Victoria will ensure everything is safe and operational. Once approved, you'll start harnessing solar energy to power your home.</p>
+            <!-- Collapsible Section for Mobile Devices -->
+            <div class="accordion">
+                <button class="accordion-toggle" aria-expanded="false">
+                    View Steps
+                </button>
+                <div class="accordion-content">
+                    <div class="steps-grid">
+                        <div class="step">
+                            <h3>Step 1</h3>
+                            <p>Book a consultation with one of our solar professionals. We'll discuss your budget, energy requirements, available rebates, and answer any questions you may have.</p>
+                        </div>
+                        <div class="step">
+                            <h3>Step 2</h3>
+                            <p>Based on our discussion, we'll design a customized solar panel plan tailored to your property.</p>
+                        </div>
+                        <div class="step">
+                            <h3>Step 3</h3>
+                            <p>After the proposal is signed, we'll obtain pre-approval from your energy provider. We'll also assist you with any necessary rebate forms to secure government funding.</p>
+                        </div>
+                        <div class="step">
+                            <h3>Step 4</h3>
+                            <p>Schedule a convenient date and time for installation with our team.</p>
+                        </div>
+                        <div class="step">
+                            <h3>Step 5</h3>
+                            <p>Post-installation, an inspector from EnergySafe Victoria will ensure everything is safe and operational. Once approved, you'll start harnessing solar energy to power your home.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- Request a Quote Button -->
             <div class="request-quote-container">
                 <a href="contactUs.html" class="cta-button request-quote-button">Request a Quote</a>
             </div>

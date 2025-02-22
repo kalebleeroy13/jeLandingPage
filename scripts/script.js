@@ -51,6 +51,19 @@ function addDropdownListeners() {
     checkViewport(); // Initial check on page load
 }
 
+// Function to toggle the visibility of steps on small devices
+function toggleSteps() {
+    const accordionToggle = document.querySelector('.accordion-toggle');
+    const accordionContent = document.querySelector('.accordion-content');
+
+    if (accordionToggle) {
+        accordionToggle.addEventListener('click', () => {
+            accordionContent.classList.toggle('expanded');
+            accordionToggle.setAttribute('aria-expanded', accordionContent.classList.contains('expanded'));
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Lazy loading for images
     const images = document.querySelectorAll('img');
@@ -221,4 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.prepend(overlay);
         }
     }
+
+    // Initialize the toggleSteps function
+    toggleSteps();
 });

@@ -39,7 +39,7 @@ a:hover {
 img {
     max-width: 100%;
     height: auto;
-    display: block;
+    display: flex;
 }
 
 .centered-text {
@@ -1490,6 +1490,7 @@ footer, #footer-placeholder {
     width: 18vw;
     height: auto;
     margin: 0 20px;
+    
 }
 
 #general-links a, #service-links a {
@@ -1529,6 +1530,110 @@ footer p {
 
 #footer-content p a:hover {
     text-decoration: underline;
+}
+
+footer {
+    padding: 2rem; /* Overrides the previous padding */
+}
+
+#footer-logo {
+    width: 15vw; /* Logo scales with viewport width */
+    max-width: 150px; /* Prevents logo from becoming too large */
+    height: auto;
+    margin: 0 2rem;
+}
+
+#general-links,
+#service-links {
+    margin: 0 2rem; /* Overrides the previous margin */
+}
+
+#general-links a,
+#service-links a {
+    margin: 0.5rem 0; /* Overrides the previous margin */
+}
+
+footer p {
+    margin: 0.5rem 0; /* Overrides the previous margin */
+}
+
+footer p i {
+    margin-right: 0.5rem; /* Adjust icon spacing */
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Stack footer content vertically */
+    #footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Resize logo for mobile */
+    #footer-logo {
+        width: 30vw;
+        max-width: 120px;
+        margin: 1rem 0;
+        
+    }
+
+    /* Adjust link sections */
+    #general-links,
+    #service-links {
+        margin: 1rem 0;
+    }
+
+    /* Increase link font size for readability */
+    #general-links a,
+    #service-links a {
+        font-size: 1rem; /* Equivalent to 16px */
+        margin: 0.5rem 0;
+    }
+
+    /* Adjust footer paragraphs */
+    footer p {
+        flex-direction: column;
+        margin: 1rem 0;
+    }
+
+    footer p a {
+        font-size: 1rem; /* 16px equivalent */
+    }
+
+    /* Adjust icon sizes */
+    footer p i {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem; /* Equivalent to 20px */
+    }
+
+    .footer-instagram {
+        margin-top: 1rem;
+    }
+
+    /* Style footer sections */
+    .footer-section {
+        width: 100%;
+        border-top: 0.1rem solid var(--secondary-color);
+        padding-top: 1rem;
+
+    }
+
+    /* Remove top border from first section */
+    .footer-section:first-of-type {
+        border-top: none;
+        padding-top: 0;
+    }
 }
 
 /* High Resolution Devices */

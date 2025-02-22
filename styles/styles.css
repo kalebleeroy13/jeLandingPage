@@ -405,6 +405,25 @@ th {
     }
 }
 
+/* Styles for Laptop Views */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    #logo-container img {
+        width: 25vw; /* Adjust width for laptops */
+        max-width: 80%; /* Set a maximum width relative to the parent container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Adjust font size for laptop views */
+    }
+
+    nav a {
+        font-size: 1em; /* Adjust navigation font size for laptops */
+        padding: 0.5vw 1vw;
+    }
+}
+
+
 /* Header Styles */
 header {
     display: flex;

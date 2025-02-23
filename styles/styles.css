@@ -463,6 +463,15 @@ nav a {
     padding: 0.5vw 1vw;
 }
 
+/* Navigation Links (excluding elements with 'exclude-hover' class) */
+nav a:not(.exclude-hover) {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.5vw 1vw;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: var(--border-radius);
+}
+
 /* Button Style for "Call Us" */
 .header-call-button .call-us-button {
     display: inline-block;
@@ -479,6 +488,11 @@ nav a {
 .header-call-button .call-us-button:hover {
     background-color: #000000; /* Black background */
     color: #FFD700; /* Yellow text color */
+}
+
+nav a:not(.exclude-hover):hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
 }
 
 /* Responsive Navbar Styles */

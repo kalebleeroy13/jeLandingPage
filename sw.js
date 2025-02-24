@@ -7,21 +7,21 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME).then(cache => {
       return cache.addAll([
         // Add the initial resources you want to cache here
-        '/index.html',
-        '/styles/styles.css',
-        '/scripts/script.js',
-        '/header.html',
-        '/footer.html',
-        '/evCharging.html',
-        '/generalElectrical.html',
-        '/portfolio.html',
-        '/contactUs.html',
-        '/services.html',
-        '/site.webmanifest',
-        '/aboutUs.html',
-        '/batterySystems.html',
-        '/solarSystems.html',
-        '/favicon.ico' // Add the favicon to the cache
+        'index.html',
+        'styles/styles.css',
+        'scripts/script.js',
+        'header.html',
+        'footer.html',
+        'evCharging.html',
+        'generalElectrical.html',
+        'portfolio.html',
+        'contactUs.html',
+        'services.html',
+        'site.webmanifest',
+        'aboutUs.html',
+        'batterySystems.html',
+        'solarSystems.html',
+        'favicon.ico' // Add the favicon to the cache
       ]);
     })
   );

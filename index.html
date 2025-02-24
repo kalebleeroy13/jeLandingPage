@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Meta Tags -->
     <meta charset="UTF-8">
@@ -8,24 +9,26 @@
 
     <!-- Stylesheets and Fonts -->
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Favicon and Web App Manifest -->
     <link rel="apple-touch-icon" sizes="180x180" href="styles/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="styles/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="styles/images/favicon-16x16.png">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="manifest" href="site.webmanifest">
 </head>
+
 <body>
-    <!-- Loading Overlay with Rising Sun Animation -->
+    <!-- Enhanced Loading Overlay with Rising Sun Animation -->
     <div id="loading-overlay">
-        <div id="rising-sun-container">
-            <div id="rising-sun"></div>
+        <div id="sunrise-animation">
+            <div id="sky-gradient"></div>
+            <div id="sun">
+                <div id="rays"></div>
+            </div>
+            <div id="horizon"></div>
         </div>
     </div>
 
@@ -60,9 +63,7 @@
             <h2>How It Works</h2>
             <!-- Collapsible Section for Mobile Devices -->
             <div class="accordion">
-                <button class="accordion-toggle" aria-expanded="false">
-                    View Steps
-                </button>
+                <button class="accordion-toggle" aria-expanded="false">View Steps</button>
                 <div class="accordion-content">
                     <div class="steps-grid">
                         <div class="step">
@@ -101,4 +102,5 @@
     <!-- Scripts -->
     <script src="scripts/script.js"></script>
 </body>
+
 </html>

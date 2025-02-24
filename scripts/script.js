@@ -3,7 +3,7 @@
 // Register service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('sw.js') // Updated path to match your structure
             .then(registration => {
                 console.log('ServiceWorker registration successful with scope:', registration.scope);
             })
@@ -19,8 +19,6 @@ function toggleMenu() {
     const isExpanded = navbar.classList.contains('open');
     document.getElementById('menu-icon').setAttribute('aria-expanded', isExpanded);
 }
-
-// Existing functions and event listeners...
 
 function addDropdownListeners() {
     const dropdownButton = document.querySelector('.dropdown-button');
@@ -51,7 +49,6 @@ function addDropdownListeners() {
     checkViewport(); // Initial check on page load
 }
 
-// Function to toggle the visibility of steps on small devices
 function toggleSteps() {
     const accordionToggle = document.querySelector('.accordion-toggle');
     const accordionContent = document.querySelector('.accordion-content');
@@ -108,29 +105,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
 
     if (isIndexPage) {
-        // Only create the loading overlay on the index page
-        createLoadingOverlay();
-
         // Wait for the end of the sun animation before showing the page
-        const risingSun = document.getElementById('rising-sun');
-        if (risingSun) {
-            risingSun.addEventListener('animationend', () => {
+        const sun = document.getElementById('sun');
+        if (sun) {
+            sun.addEventListener('animationend', () => {
                 document.body.classList.add('loaded');
                 setTimeout(() => {
                     const loadingOverlay = document.getElementById('loading-overlay');
                     if (loadingOverlay) {
                         loadingOverlay.remove();
                     }
-                }, 1000);
+                }, 500);
             });
         } else {
-            setTimeout(() => {
+            // Fallback in case the sun element is not found
+            window.addEventListener('load', () => {
                 document.body.classList.add('loaded');
                 const loadingOverlay = document.getElementById('loading-overlay');
                 if (loadingOverlay) {
                     loadingOverlay.remove();
                 }
-            }, 2000);
+            });
         }
     } else {
         // For other pages, add fade-in effect to body on initial load
@@ -220,19 +215,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function validatePhone(phone) {
         const re = /^\+?[0-9\s\-]{7,15}$/;
         return re.test(String(phone));
-    }
-
-    function createLoadingOverlay() {
-        if (!document.getElementById('loading-overlay')) {
-            const overlay = document.createElement('div');
-            overlay.id = 'loading-overlay';
-            overlay.innerHTML = `
-                <div id="rising-sun-container">
-                    <div id="rising-sun"></div>
-                </div>
-            `;
-            document.body.prepend(overlay);
-        }
     }
 
     // Initialize the toggleSteps function

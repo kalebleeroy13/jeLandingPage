@@ -1,3 +1,16 @@
+/*
+Theme Name: Jenergy Electrical and Solar
+Theme URI: http://example.com/jenergy-theme
+Author: Kaleb Hunter
+Author URI: http://example.com
+Description: A custom theme for Jenergy Electrical and Solar
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: jenergy-theme
+*/
+
+
 /* Root Variables */
 :root {
     --primary-color: #FFD700;

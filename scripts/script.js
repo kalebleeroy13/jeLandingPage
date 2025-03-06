@@ -68,19 +68,29 @@ function toggleSteps() {
     }
 }
 
-// Function to create the loading overlay
 function createLoadingOverlay() {
-    if (!document.getElementById('loading-overlay')) {
-        const overlay = document.createElement('div');
-        overlay.id = 'loading-overlay';
-        overlay.innerHTML = `
-            <div id="rising-sun-container">
-                <div id="rising-sun"></div>
-            </div>
-        `;
-        document.body.prepend(overlay);
+    // Check if the overlay already exists to prevent duplication
+    if (document.getElementById('loading-overlay')) {
+        console.log('Loading overlay already exists. Skipping creation.');
+        return;
     }
+
+    // Log the creation for debugging purposes
+    console.log('Creating loading overlay at', new Date().toISOString());
+
+    // Create the overlay element
+    const overlay = document.createElement('div');
+    overlay.id = 'loading-overlay';
+    overlay.innerHTML = `
+        <div id="rising-sun-container">
+            <div id="rising-sun"></div>
+        </div>
+    `;
+
+    // Prepend the overlay to the document body
+    document.body.prepend(overlay);
 }
+
 
 // Function to remove the loading overlay
 function removeLoadingOverlay() {

@@ -82,6 +82,15 @@ function createLoadingOverlay() {
     }
 }
 
+// Function to remove the loading overlay
+function removeLoadingOverlay() {
+    const overlay = document.getElementById('loading-overlay');
+    if (overlay) {
+        overlay.style.display = 'none'; // Hides the overlay
+        overlay.remove(); // Removes it from the DOM (optional)
+    }
+}
+
 // Lazy loading for images
 function enableLazyLoading() {
     const images = document.querySelectorAll('img');
@@ -211,6 +220,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 event.preventDefault();
             }
         });
+    }
+
+    // Remove the loading overlay after animation
+    const overlay = document.getElementById('loading-overlay');
+    if (overlay) {
+        overlay.addEventListener('animationend', () => removeLoadingOverlay());
+        setTimeout(() => removeLoadingOverlay(), 5000); // Fallback after 5 seconds
     }
 
     // Handle page transitions

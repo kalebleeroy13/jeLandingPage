@@ -25,14 +25,14 @@ function toggleMenu() {
     document.getElementById('menu-icon').setAttribute('aria-expanded', isExpanded);
 }
 
-// Add listeners for dropdown navigation (if applicable)
+// Add listeners for dropdown navigation
 function addDropdownListeners() {
     const dropdownButton = document.querySelector('.dropdown-button');
     const dropdownContent = document.querySelector('.custom-dropdown-menu');
 
     function handleDropdownToggle(event) {
         event.preventDefault();
-        let expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
+        const expanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
         dropdownButton.setAttribute('aria-expanded', !expanded);
         dropdownContent.classList.toggle('show');
     }
@@ -82,99 +82,144 @@ function createLoadingOverlay() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Lazy loading for images
+// Lazy loading for images
+function enableLazyLoading() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         img.setAttribute('loading', 'lazy');
     });
+}
 
+// Fetch and insert header/footer content
+function fetchAndSetInnerHTML(url, element) {
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            element.innerHTML = data;
+            if (url.includes('header.html')) {
+                addDropdownListeners();
+            }
+        })
+        .catch(error => {
+            console.error(`Error loading ${url}:`, error);
+        });
+}
+
+// Load header and footer dynamically
+function loadHeaderFooter() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
-    // Fetch and insert header/footer content
-    function fetchAndSetInnerHTML(url, element) {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                element.innerHTML = data;
-                if (url.includes('header.html')) {
-                    addDropdownListeners();
-                }
-            })
-            .catch(error => {
-                console.error(`Error loading ${url}:`, error);
-            });
+    if (headerPlaceholder) {
+        fetchAndSetInnerHTML('header.html', headerPlaceholder);
+    }
+    if (footerPlaceholder) {
+        fetchAndSetInnerHTML('footer.html', footerPlaceholder);
+    }
+}
+
+// Form validation
+function validateForm() {
+    let isValid = true;
+
+    const nameField = document.querySelector('input[name="name"]');
+    const emailField = document.querySelector('input[name="email"]');
+    const phoneField = document.querySelector('input[name="number"]');
+    const serviceField = document.querySelector('select[name="service"]');
+    const messageField = document.querySelector('textarea[name="message"]');
+
+    document.querySelectorAll('.error-message').forEach(el => el.remove());
+
+    if (nameField && nameField.value.trim() === "") {
+        showError(nameField, "Name is required");
+        isValid = false;
     }
 
-    function loadHeaderFooter() {
-        if (headerPlaceholder) {
-            fetchAndSetInnerHTML('header.html', headerPlaceholder);
-        }
-        if (footerPlaceholder) {
-            fetchAndSetInnerHTML('footer.html', footerPlaceholder);
-        }
+    if (emailField && emailField.value.trim() === "") {
+        showError(emailField, "Email is required");
+        isValid = false;
+    } else if (emailField && !validateEmail(emailField.value)) {
+        showError(emailField, "Please enter a valid email");
+        isValid = false;
     }
 
+    if (phoneField && phoneField.value.trim() !== "" && !validatePhone(phoneField.value)) {
+        showError(phoneField, "Please enter a valid phone number");
+        isValid = false;
+    }
+
+    if (serviceField && serviceField.value === "") {
+        showError(serviceField, "Please select a service");
+        isValid = false;
+    }
+
+    if (messageField && messageField.value.trim() === "") {
+        showError(messageField, "Message is required");
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function showError(field, message) {
+    const error = document.createElement('div');
+    error.className = 'error-message';
+    error.style.color = 'red';
+    error.textContent = message;
+    field.parentElement.appendChild(error);
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function validatePhone(phone) {
+    const re = /^\+?[0-9\s\-]{7,15}$/;
+    return re.test(String(phone));
+}
+
+// Detect offline/online status
+function handleNetworkStatus() {
+    window.addEventListener('offline', () => {
+        console.log('You are now offline.');
+        alert('You appear to be offline. Some features may not be available.');
+    });
+
+    window.addEventListener('online', () => {
+        console.log('Back online!');
+        alert('You are back online. Enjoy full functionality!');
+    });
+}
+
+// Initialize all event listeners
+document.addEventListener('DOMContentLoaded', function () {
+    enableLazyLoading();
     loadHeaderFooter();
+    toggleSteps();
+    handleNetworkStatus();
 
-    // Determine if we're on the index page
-    const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
-
-    if (isIndexPage) {
-        // Create the loading overlay on the index page
-        createLoadingOverlay();
-
-        // Wait for the end of the sun animation before removing the overlay
-        const risingSun = document.getElementById('rising-sun');
-        let overlayTimeout;
-
-        if (risingSun) {
-            risingSun.addEventListener('animationend', () => {
-                document.body.classList.add('loaded');
-                clearTimeout(overlayTimeout);
-                setTimeout(() => {
-                    const loadingOverlay = document.getElementById('loading-overlay');
-                    if (loadingOverlay) {
-                        loadingOverlay.remove();
-                    }
-                }, 1000);
-            });
-
-            // Fallback timeout to ensure the overlay is removed
-            overlayTimeout = setTimeout(() => {
-                document.body.classList.add('loaded');
-                const loadingOverlay = document.getElementById('loading-overlay');
-                if (loadingOverlay) {
-                    loadingOverlay.remove();
-                }
-            }, 5000);
-        } else {
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-                const loadingOverlay = document.getElementById('loading-overlay');
-                if (loadingOverlay) {
-                    loadingOverlay.remove();
-                }
-            }, 2000);
-        }
-    } else {
-        // Add fade-in effect for other pages
-        document.body.classList.add('fade-in');
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', function (event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        });
     }
 
-    // Add fade-out effect for link navigation
+    // Handle page transitions
     document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (event) => {
             const href = link.getAttribute('href');
             if (
                 href &&
-                href.startsWith('/') && // Handle only internal links
+                href.startsWith('/') &&
                 !href.startsWith('#') &&
                 !href.startsWith('javascript:') &&
                 !link.hasAttribute('download') &&
@@ -189,88 +234,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Form validation
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function(event) {
-            if (!validateForm()) {
-                event.preventDefault();
-            }
-        });
-    }
-
-    function validateForm() {
-        let isValid = true;
-
-        const nameField = document.querySelector('input[name="name"]');
-        const emailField = document.querySelector('input[name="email"]');
-        const phoneField = document.querySelector('input[name="number"]');
-        const serviceField = document.querySelector('select[name="service"]');
-        const messageField = document.querySelector('textarea[name="message"]');
-
-        document.querySelectorAll('.error-message').forEach(el => el.remove());
-
-        if (nameField && nameField.value.trim() === "") {
-            showError(nameField, "Name is required");
-            isValid = false;
-        }
-
-        if (emailField && emailField.value.trim() === "") {
-            showError(emailField, "Email is required");
-            isValid = false;
-        } else if (emailField && !validateEmail(emailField.value)) {
-            showError(emailField, "Please enter a valid email");
-            isValid = false;
-        }
-
-        if (phoneField && phoneField.value.trim() !== "" && !validatePhone(phoneField.value)) {
-            showError(phoneField, "Please enter a valid phone number");
-            isValid = false;
-        }
-
-        if (serviceField && serviceField.value === "") {
-            showError(serviceField, "Please select a service");
-            isValid = false;
-        }
-
-        if (messageField && messageField.value.trim() === "") {
-            showError(messageField, "Message is required");
-            isValid = false;
-        }
-
-        return isValid;
-    }
-
-    function showError(field, message) {
-        const error = document.createElement('div');
-        error.className = 'error-message';
-        error.style.color = 'red';
-        error.textContent = message;
-        field.parentElement.appendChild(error);
-    }
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    function validatePhone(phone) {
-        const re = /^\+?[0-9\s\-]{7,15}$/;
-        return re.test(String(phone));
-    }
-
-    // Detect offline/online status
-    window.addEventListener('offline', () => {
-        console.log('You are now offline.');
-        alert('You appear to be offline. Some features may not be available.');
-    });
-
-    window.addEventListener('online', () => {
-        console.log('Back online!');
-        alert('You are back online. Enjoy full functionality!');
-    });
-
-    // Initialize toggle steps function for small devices
-    toggleSteps();
 });

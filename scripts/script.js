@@ -1,5 +1,3 @@
-// script.js
-
 // Register service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -11,8 +9,15 @@ if ('serviceWorker' in navigator) {
                 console.log('ServiceWorker registration failed:', error);
             });
     });
+
+    // Reload page when a new service worker takes control
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        console.log('New service worker activated. Reloading page to use updated content.');
+        window.location.reload();
+    });
 }
 
+// Function to toggle the navigation menu
 function toggleMenu() {
     const navbar = document.querySelector('.nav-container');
     navbar.classList.toggle('open');
@@ -20,8 +25,7 @@ function toggleMenu() {
     document.getElementById('menu-icon').setAttribute('aria-expanded', isExpanded);
 }
 
-// Existing functions and event listeners...
-
+// Add listeners for dropdown navigation (if applicable)
 function addDropdownListeners() {
     const dropdownButton = document.querySelector('.dropdown-button');
     const dropdownContent = document.querySelector('.custom-dropdown-menu');
@@ -42,13 +46,13 @@ function addDropdownListeners() {
             } else {
                 dropdownButton.removeEventListener('click', handleDropdownToggle);
                 dropdownContent.classList.remove('show');
-                dropdownButton.onclick = null; // Ensure "Services" link works on larger screens
+                dropdownButton.onclick = null;
             }
         }
     }
 
     window.addEventListener('resize', checkViewport);
-    checkViewport(); // Initial check on page load
+    checkViewport();
 }
 
 // Function to toggle the visibility of steps on small devices
@@ -64,6 +68,20 @@ function toggleSteps() {
     }
 }
 
+// Function to create the loading overlay
+function createLoadingOverlay() {
+    if (!document.getElementById('loading-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.id = 'loading-overlay';
+        overlay.innerHTML = `
+            <div id="rising-sun-container">
+                <div id="rising-sun"></div>
+            </div>
+        `;
+        document.body.prepend(overlay);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Lazy loading for images
     const images = document.querySelectorAll('img');
@@ -74,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
 
+    // Fetch and insert header/footer content
     function fetchAndSetInnerHTML(url, element) {
         fetch(url)
             .then(response => {
@@ -108,14 +127,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
 
     if (isIndexPage) {
-        // Only create the loading overlay on the index page
+        // Create the loading overlay on the index page
         createLoadingOverlay();
 
-        // Wait for the end of the sun animation before showing the page
+        // Wait for the end of the sun animation before removing the overlay
         const risingSun = document.getElementById('rising-sun');
+        let overlayTimeout;
+
         if (risingSun) {
             risingSun.addEventListener('animationend', () => {
                 document.body.classList.add('loaded');
+                clearTimeout(overlayTimeout);
                 setTimeout(() => {
                     const loadingOverlay = document.getElementById('loading-overlay');
                     if (loadingOverlay) {
@@ -123,6 +145,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }, 1000);
             });
+
+            // Fallback timeout to ensure the overlay is removed
+            overlayTimeout = setTimeout(() => {
+                document.body.classList.add('loaded');
+                const loadingOverlay = document.getElementById('loading-overlay');
+                if (loadingOverlay) {
+                    loadingOverlay.remove();
+                }
+            }, 5000);
         } else {
             setTimeout(() => {
                 document.body.classList.add('loaded');
@@ -133,15 +164,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 2000);
         }
     } else {
-        // For other pages, add fade-in effect to body on initial load
+        // Add fade-in effect for other pages
         document.body.classList.add('fade-in');
     }
 
-    // Add transition effect when clicking on links
+    // Add fade-out effect for link navigation
     document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (event) => {
             const href = link.getAttribute('href');
-            if (href && !href.startsWith('#') && !href.startsWith('javascript:') && !link.hasAttribute('download') && !link.hasAttribute('data-no-transition')) {
+            if (
+                href &&
+                href.startsWith('/') && // Handle only internal links
+                !href.startsWith('#') &&
+                !href.startsWith('javascript:') &&
+                !link.hasAttribute('download') &&
+                !link.hasAttribute('data-no-transition')
+            ) {
                 event.preventDefault();
                 document.body.classList.remove('fade-in');
                 document.body.classList.add('fade-out');
@@ -152,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form Validation (if applicable)
+    // Form validation
     const form = document.querySelector('form');
     if (form) {
         form.addEventListener('submit', function(event) {
@@ -222,19 +260,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return re.test(String(phone));
     }
 
-    function createLoadingOverlay() {
-        if (!document.getElementById('loading-overlay')) {
-            const overlay = document.createElement('div');
-            overlay.id = 'loading-overlay';
-            overlay.innerHTML = `
-                <div id="rising-sun-container">
-                    <div id="rising-sun"></div>
-                </div>
-            `;
-            document.body.prepend(overlay);
-        }
-    }
+    // Detect offline/online status
+    window.addEventListener('offline', () => {
+        console.log('You are now offline.');
+        alert('You appear to be offline. Some features may not be available.');
+    });
 
-    // Initialize the toggleSteps function
+    window.addEventListener('online', () => {
+        console.log('Back online!');
+        alert('You are back online. Enjoy full functionality!');
+    });
+
+    // Initialize toggle steps function for small devices
     toggleSteps();
 });

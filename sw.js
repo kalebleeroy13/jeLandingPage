@@ -63,28 +63,40 @@ self.addEventListener('activate', event => {
 // Fetch event
 self.addEventListener('fetch', event => {
   console.log('Fetch request for:', event.request.url);
-  event.respondWith(
-    caches.match(event.request).then(cachedResponse => {
-      // Serve cached file if available
-      if (cachedResponse) {
-        console.log('Serving cached:', event.request.url);
-        return cachedResponse;
-      }
-      // Otherwise, fetch from network and cache it
-      return fetch(event.request).then(networkResponse => {
-        // Check if network response is valid before caching
-        if (networkResponse && networkResponse.status === 200) {
-          return caches.open(CACHE_NAME).then(cache => {
-            console.log('Caching new resource:', event.request.url);
-            cache.put(event.request, networkResponse.clone());
-            return networkResponse;
-          });
-        }
-        return networkResponse;
+
+  if (event.request.mode === 'navigate') {
+    // Handle navigation requests and serve the cached `index.html`
+    event.respondWith(
+      caches.match('/jenergy-web-app/index.html').then(cachedResponse => {
+        return cachedResponse || fetch('/jenergy-web-app/index.html');
       }).catch(error => {
-        console.error('Network fetch failed for:', event.request.url, error);
+        console.error('Failed to serve index.html for navigation:', error);
         throw error;
-      });
-    })
-  );
+      })
+    );
+  } else {
+    // Handle other requests normally
+    event.respondWith(
+      caches.match(event.request).then(cachedResponse => {
+        if (cachedResponse) {
+          console.log('Serving cached:', event.request.url);
+          return cachedResponse;
+        }
+        // Fetch from network and cache it
+        return fetch(event.request).then(networkResponse => {
+          if (networkResponse && networkResponse.status === 200) {
+            return caches.open(CACHE_NAME).then(cache => {
+              console.log('Caching new resource:', event.request.url);
+              cache.put(event.request, networkResponse.clone());
+              return networkResponse;
+            });
+          }
+          return networkResponse;
+        }).catch(error => {
+          console.error('Network fetch failed for:', event.request.url, error);
+          throw error;
+        });
+      })
+    );
+  }
 });

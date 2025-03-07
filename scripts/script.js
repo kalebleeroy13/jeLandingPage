@@ -1,21 +1,34 @@
-// Register service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/jenergy-web-app/sw.js')
             .then(registration => {
                 console.log('ServiceWorker registration successful with scope:', registration.scope);
+
+                // Check if the service worker is already controlling the page
+                if (navigator.serviceWorker.controller) {
+                    console.log('Service worker is already controlling the page.');
+                } else {
+                    console.log('No active service worker yet.');
+                }
             })
             .catch(error => {
                 console.log('ServiceWorker registration failed:', error);
             });
     });
 
-    // Reload page when a new service worker takes control
-    //navigator.serviceWorker.addEventListener('controllerchange', () => {
-      //  console.log('New service worker activated. Reloading page to use updated content.');
-        //window.location.reload();
-    //});
-//}
+    // Reload the page only when a new service worker takes control
+    let isInitialControllerChange = true;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (isInitialControllerChange) {
+            console.log('Controller change detected on initial load. Skipping reload.');
+            isInitialControllerChange = false;
+        } else {
+            console.log('New service worker activated. Reloading page to use updated content.');
+            window.location.reload();
+        }
+    });
+}
+
 
 // Function to toggle the navigation menu
 function toggleMenu() {

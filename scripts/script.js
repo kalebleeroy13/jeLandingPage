@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.body.classList.add('fade-out');
                 setTimeout(() => {
                     window.location.href = href;
-                }, 500);
+                }, 1000);
             }
         });
     });

@@ -1,3 +1,4 @@
+// Register service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/jenergy-web-app/sw.js')
@@ -23,12 +24,16 @@ if ('serviceWorker' in navigator) {
             console.log('Controller change detected on initial load. Skipping reload.');
             isInitialControllerChange = false;
         } else {
-            console.log('New service worker activated. Reloading page to use updated content.');
-            window.location.reload();
+            console.log('New service worker activated. Reloading page after transition.');
+
+            // Delay the reload to allow the fade-out effect
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000); // Matches transition duration
         }
     });
 }
-
 
 // Function to toggle the navigation menu
 function toggleMenu() {
@@ -274,6 +279,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Apply fade-in on initial page load
+    document.body.classList.add('fade-in');
+    setTimeout(() => {
+        document.body.classList.remove('fade-in');
+    }, 1000); // Matches CSS duration
+
     // Handle page transitions
     document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (event) => {
@@ -281,18 +292,20 @@ document.addEventListener('DOMContentLoaded', function () {
             if (
                 href &&
                 href.startsWith('/') &&
-                !href.startsWith('#') &&
+                !href.startsWith('#') && // Ignore anchor links
                 !href.startsWith('javascript:') &&
-                !link.hasAttribute('download') &&
-                !link.hasAttribute('data-no-transition')
+                !link.hasAttribute('download') && // Ignore downloadable links
+                !link.hasAttribute('data-no-transition') && // Ignore links that shouldn't transition
+                window.location.pathname !== href // Avoid reloading the current page
             ) {
                 event.preventDefault();
-                document.body.classList.remove('fade-in');
+                console.log('Fade-out triggered for link:', href); // Debugging log
                 document.body.classList.add('fade-out');
                 setTimeout(() => {
                     window.location.href = href;
-                }, 1000);
+                }, 1000); // Matches CSS transition duration
             }
         });
     });
 });
+

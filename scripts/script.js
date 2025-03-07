@@ -70,22 +70,29 @@ function toggleSteps() {
 
 // Function to create the loading overlay
 function createLoadingOverlay() {
-    if (!document.getElementById('loading-overlay')) {
-        const overlay = document.createElement('div');
-        overlay.id = 'loading-overlay';
-        overlay.innerHTML = `
-            <div id="rising-sun-container">
-                <div id="rising-sun"></div>
-            </div>
-        `;
-        document.body.prepend(overlay);
+    if (document.getElementById('loading-overlay')) {
+        console.log('Loading overlay already exists. Skipping creation.');
+        return; // Prevent duplicate initialization
     }
+
+    console.log('Creating loading overlay...');
+    const overlay = document.createElement('div');
+    overlay.id = 'loading-overlay';
+    overlay.innerHTML = `
+        <div id="rising-sun-container">
+            <div id="rising-sun"></div>
+        </div>
+    `;
+    document.body.prepend(overlay);
+
+    console.log('Loading overlay created at:', new Date().toISOString());
 }
 
 // Function to remove the loading overlay
 function removeLoadingOverlay() {
     const overlay = document.getElementById('loading-overlay');
     if (overlay) {
+        console.log('Removing loading overlay at:', new Date().toISOString());
         overlay.style.display = 'none'; // Hides the overlay
         overlay.remove(); // Removes it from the DOM (optional)
     }
@@ -208,6 +215,9 @@ function handleNetworkStatus() {
 
 // Initialize all event listeners
 document.addEventListener('DOMContentLoaded', function () {
+    // Guard to ensure the overlay is removed only once
+    let overlayRemoved = false;
+
     enableLazyLoading();
     loadHeaderFooter();
     toggleSteps();
@@ -225,8 +235,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Remove the loading overlay after animation
     const overlay = document.getElementById('loading-overlay');
     if (overlay) {
-        overlay.addEventListener('animationend', () => removeLoadingOverlay());
-        setTimeout(() => removeLoadingOverlay(), 5000); // Fallback after 5 seconds
+        overlay.addEventListener('animationend', (event) => {
+            if (!overlayRemoved) {
+                removeLoadingOverlay();
+                overlayRemoved = true;
+            }
+        });
+
+        setTimeout(() => {
+            if (!overlayRemoved) {
+                removeLoadingOverlay();
+                overlayRemoved = true;
+            }
+        }, 5000); // Fallback after 5 seconds
+    }
+
+    // Handle rising sun animation to ensure it doesn't restart
+    const risingSun = document.getElementById('rising-sun');
+    if (risingSun) {
+        risingSun.addEventListener('animationend', (event) => {
+            if (event.animationName === 'burst') {
+                console.log('Rising sun animation completed.');
+                risingSun.style.animation = 'none'; // Disable further animations
+            }
+        });
     }
 
     // Handle page transitions

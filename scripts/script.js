@@ -11,11 +11,11 @@ if ('serviceWorker' in navigator) {
     });
 
     // Reload page when a new service worker takes control
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-        console.log('New service worker activated. Reloading page to use updated content.');
-        window.location.reload();
-    });
-}
+    //navigator.serviceWorker.addEventListener('controllerchange', () => {
+      //  console.log('New service worker activated. Reloading page to use updated content.');
+        //window.location.reload();
+    //});
+//}
 
 // Function to toggle the navigation menu
 function toggleMenu() {
